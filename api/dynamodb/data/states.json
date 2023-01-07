@@ -1,0 +1,64 @@
+{
+    "states" : [
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "id" : { "S" : "1" },
+                    "name" : { "S" : "Washington" },
+                    "abbrv" : { "S" : "WA" },
+                    "country" : { "S" : "USA" }
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "id" : { "N" : "2" },
+                    "name" : { "S" : "Oregon" },
+                    "abbrv" : { "S" : "OR" },
+                    "country" : { "S" : "USA" }
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "id" : { "N" : "3" },
+                    "name" : { "S" : "Idaho" },
+                    "abbrv" : { "S" : "ID" },
+                    "country" : { "S" : "USA" }
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "id" : { "N" : "4" },
+                    "name" : { "S" : "Montana" },
+                    "abbrv" : { "S" : "MT" },
+                    "country" : { "S" : "USA" }
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "id" : { "N" : "5" },
+                    "name" : { "S" : "British Colombia" },
+                    "abbrv" : { "S" : "BC" },
+                    "country" : { "S" : "Canada" }
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "id" : { "N" : "6" },
+                    "name" : { "S" : "Alberta" },
+                    "abbrv" : { "S" : "AB" },
+                    "country" : { "S" : "Canada" }
+                }
+            }
+        }
+    ]
+}

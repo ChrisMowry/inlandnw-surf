@@ -1,0 +1,17 @@
+[
+    {
+        "id" : 1,
+        "name" : "Upper Spokane",
+        "stream-id" : 1
+    },
+    {
+        "id" : 2,
+        "name" : "Lower Spokane",
+        "stream-id" : 1
+    },
+    {
+        "id" : 3,
+        "name" : "Latah Creek",
+        "stream-id" : 2
+    }
+]

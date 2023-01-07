@@ -1,0 +1,22 @@
+[
+    {
+        "id" : 1,
+        "name" : "US Feet",
+        "abbv" : "ft"
+    },
+    {
+        "id" : 2,
+        "name" : "Cubic Feet per Second",
+        "abbv" : "cfs"
+    },
+    {
+        "id" : 3,
+        "name" : "Meters",
+        "abbv" : "m"
+    },
+    {
+        "id" : 4,
+        "name" : "Cubic Meters per Second",
+        "abbv" : "cms"
+    }
+]
