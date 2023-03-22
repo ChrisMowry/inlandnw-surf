@@ -1,0 +1,166 @@
+{
+    "RequestItems": {
+        "surf-spots": [
+            {
+                "PutRequest" : {
+                    "Item" : {
+                        "pk" : { "S" : "FLOWSOURCE:1" },
+                        "sk" : { "S" : "REGION:SPOKANE" },
+                        "type" : { "S" : "FLOWSOURCE" },
+                        "data" : { "M" : {
+                                "value" : { "N" : "" },
+                                "unit" : { "M" : {
+                                        "name" : { "S" : "" },
+                                        "abbr" : { "S" : "" },
+                                        "unit-type" : { "S" : "" },
+                                        "conv-factor" : { "N" : "" }
+                                    }
+                                },
+                                "flow-type" : {"S" : "" },
+                                "gages" : { "L" : [
+                                    { "M" : {
+                                        "id" : { "S" : "USGS-12422500" },
+                                        "name" : { "S" : "Spokane River at Spokane, WA" },
+                                        "flow" : { "M" : {} },
+                                        "datetime" : { "S" : "" },
+                                        "history" : { "L" : [] },
+                                        "location" : { "M" : {
+                                            "state" : { "M" : {
+                                                "id" : { "N" : "53" },
+                                                "name" : { "S" : "Washington" },
+                                                "abbr" : { "S" : "WA"},
+                                                "country" : { "S" : "USA" }
+                                            }},
+                                            "coordinates" : { "M" : {
+                                                "espg" : { "S" : "4326" },
+                                                "lat" : { "N" : "47.6593354" },
+                                                "lng" : { "N" : "-117.4491029" }
+                                            }}
+                                        }},
+                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12422500" }
+                                    }}
+                                ]},
+                                "gage-expression" : { "S" : "[USGS-12422500]" }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "PutRequest" : {
+                    "Item" : {
+                        "pk" : { "S" : "FLOWSOURCE:1" },
+                        "sk" : { "S" : "REGION:SPOKANE" },
+                        "type" : { "S" : "REGION" },
+                        "data" : { "M" : {
+                            "id" : { "N" : "1" },
+                            "name" : { "S" : "Spokane Area" },
+                            "boundary" : { "L" : []}
+                        }}
+                    }
+                }
+            },
+            {
+                "PutRequest" : {
+                    "Item" : {
+                        "pk" : { "S" : "FLOWSOURCE:1" },
+                        "sk" : { "S" : "REGION:SPOKANE" },
+                        "type" : { "S" : "SURFSPOT" },
+                        "data" : { "M" : {
+                            "id" : { "N" : "1" },
+                            "name" : { "S" : "Cyclops" },
+                            "surf-spots" : { "L" : [
+                                {
+                                    "id" : { "N" : "1" },
+                                    "name" : { "S" : "Cyclops" },
+                                    "description" : { "M" : {
+                                        "paragraph" : { "S" : "High Water Park and Play does not get any better than this! Although it is large it is really flushy so watch the corners of the wave on the surge as they tend to disappear. Not for the faint of heart this feature comes in at 35,000 cfs and gets better with more water. Be sure to bring a camera." },
+                                        "order" : { "N" : "1" }
+                                    }},
+                                    "difficulty" : { "S" : "HARD" },
+                                    "tricks" : { "S" : "" },
+                                    "features" : { "S" : "" },
+                                    "location" : { "M" : {
+                                        "state" : { "M" : {
+                                            "id" : { "N" : "53" },
+                                            "name" : { "S" : "Washington" },
+                                            "abbr" : { "S" : "WA"},
+                                            "country" : { "S" : "USA" }
+                                        }},
+                                        "coordinates" : { "M" : {
+                                            "espg" : { "S" : "4326" },
+                                            "lat" : { "N" : "47.71085203331206" },
+                                            "lng" : { "N" : "-117.50083475761053" }
+                                        }}
+                                    }},
+                                    "access" : { "M" : {
+                                        "state" : { "M" : {
+                                            "id" : { "N" : "53" },
+                                            "name" : { "S" : "Washington" },
+                                            "abbr" : { "S" : "WA"},
+                                            "country" : { "S" : "USA" }
+                                        }},
+                                        "coordinates" : { "M" : {
+                                            "espg" : { "S" : "4326" },
+                                            "lat" : { "N" : "47.710095963583115" },
+                                            "lng" : { "N" : "-117.49959010672329" }
+                                        }}
+                                    }},
+                                    "flow-range" : { "M" : {
+                                        "min-flow" : { "M" : { // TODO work on flow range.
+                                            "gage-height" : { "M" : {
+                                                "name" : { "S" : "" },
+                                                "abbr" : { "S" : "" }
+                                            }},
+                                            "discharge" : { "M" : {
+
+                                            }}
+                                        }},
+                                        "max-flow" : { "M" : {
+
+                                        }}
+                                    }},
+                                    "optimum-flow-range" : { "M" : {
+
+                                    }},
+                                    "flow-info" : { "L" : []},
+                                    "links" : { "L" : [
+                                        {
+                                            "order" : { "N" : "1" },
+                                            "label" : { "S" : "Gage" },
+                                            "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12422500"}
+                                        }
+                                    ]},
+                                    "images" : { "L" : []},
+                                    "videos" : { "L" : []},
+                                    "history" : { "L" : []}
+                                }
+                            ]},
+                            "location" : { "M" : {
+                                "state" : { "M" : {
+                                    "id" : { "N" : "53" },
+                                    "name" : { "S" : "Washington" },
+                                    "abbr" : { "S" : "WA"},
+                                    "country" : { "S" : "USA" }
+                                }},
+                                "coordinates" : { "M" : {
+                                    "espg" : { "S" : "4326" },
+                                    "lat" : { "N" : "47.71085203331206" },
+                                    "lng" : { "N" : "-117.50083475761053" }
+                                }}
+                            }}
+                        }}
+                    }
+            }},
+            {
+                "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE:1" },
+                    "sk" : { "S" : "REGION:SPOKANE" },
+                    "type" : { "S" : "SURFSPOT" }
+                }
+                }
+            }
+        ]
+    }
+}

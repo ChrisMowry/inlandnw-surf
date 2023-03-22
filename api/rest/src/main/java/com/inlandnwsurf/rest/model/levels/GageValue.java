@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class GageValue {
 
-    public UnitBuilder gageHeight;
-    public UnitBuilder discharge;
+    public Unit gageHeight;
+    public Unit discharge;
 
 }

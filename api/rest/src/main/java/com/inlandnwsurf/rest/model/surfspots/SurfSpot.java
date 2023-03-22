@@ -15,8 +15,6 @@ class SurfSpot{
 
     private long id;
     private String name;
-    private Region region;
-    private State state;
     private ArrayList<SurfSpotLocation> surfspots;
     private Location location;
 

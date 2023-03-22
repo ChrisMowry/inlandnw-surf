@@ -1,7 +1,4 @@
 {
-    "RequestItems": {
-        "surf-spots": [
-           {
     "states" : [
         {
             "PutRequest" : {

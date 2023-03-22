@@ -22,8 +22,6 @@ public class SurfSpotLocation extends ManagedItem {
     private String features;
     private Location location;
     private Location access;
-    private FlowType flowType;
-    private UnitType unitType;
     private FlowSource currentFlow;
     private FlowRange flowRange;
     private FlowRange optimumFlowRange;
