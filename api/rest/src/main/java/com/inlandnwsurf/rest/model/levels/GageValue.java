@@ -4,12 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class GageValue {
 
-    public Unit gageHeight;
-    public Unit discharge;
+    private double gageHeightValue;
+    private Unit gageHeight;
+    private double dischargeValue;
+    private Unit discharge;
 
 }

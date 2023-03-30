@@ -10,9 +10,7 @@ import java.util.ArrayList;
 @NoArgsConstructor
 public class FlowSource extends ManagedItem {
     private String id;
-    private double value;
-    private Unit unit;
-    private FlowType flowType;
+    private Flow flow;
     private ArrayList<Gage> gages;
     private String gageExpression;
 }

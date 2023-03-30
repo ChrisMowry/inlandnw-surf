@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class HistoryValue {
     private int day;
     private int month;
-    private double value;
+    private double percent;
 }

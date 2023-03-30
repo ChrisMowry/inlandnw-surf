@@ -14,9 +14,8 @@ public class Gage {
 
     private String id;
     private String name;
-    private Flow currentFlow;
-    private LocalDateTime datetime;
-    private ArrayList<DailyGageValue> history;
+    private ArrayList<GageValueRecord> values;
+    private ArrayList<DailyGageRange> history;
     private Location location;
     private URL url;
 

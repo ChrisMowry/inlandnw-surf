@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FlowInfo {
     private int order;
-    private FlowRange range;
+    private FlowRange flowRange;
     private String description;
 }

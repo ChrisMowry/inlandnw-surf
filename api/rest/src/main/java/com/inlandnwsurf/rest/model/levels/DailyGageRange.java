@@ -5,11 +5,11 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class DailyGageValue {
+public class DailyGageRange {
     private int day;
     private int month;
     private int year;
-    private Flow minFlow;
-    private Flow maxFlow;
+    private GageValue minGageFlow;
+    private GageValue maxGageFlow;
 
 }

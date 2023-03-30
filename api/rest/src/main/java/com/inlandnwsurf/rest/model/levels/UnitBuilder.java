@@ -16,28 +16,24 @@ public class UnitBuilder {
     public void meters(){
         this.unit.setName("meters");
         this.unit.setAbbr("m");
-        this.unit.setFlowType(FlowType.GAGE_HEIGHT);
         this.unit.setConversionFactor(this.CONV_FACTOR_M);
     }
 
     public void feet(){
         this.unit.setName("feet");
         this.unit.setAbbr("ft");
-        this.unit.setFlowType(FlowType.GAGE_HEIGHT);
         this.unit.setConversionFactor(this.CONV_FACTOR_FT);
     }
 
     public void cms(){
         this.unit.setName("cubic meters per second");
         this.unit.setAbbr("cms");
-        this.unit.setFlowType(FlowType.DISCHARGE);
         this.unit.setConversionFactor(this.CONV_FACTOR_CUBIC_M);
     }
 
     public void cfs(){
         this.unit.setName("cubic feet per second");
         this.unit.setAbbr("cfs");
-        this.unit.setFlowType(FlowType.DISCHARGE);
         this.unit.setConversionFactor(this.CONV_FACTOR_CUBIC_FT);
     }
 
