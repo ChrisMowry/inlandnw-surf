@@ -5,24 +5,25 @@
                 "PutRequest" : {
                     "Item" : {
                         "pk" : { "S" : "FLOWSOURCE:1" },
-                        "sk" : { "S" : "REGION:SPOKANE" },
+                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
                         "type" : { "S" : "FLOWSOURCE" },
                         "data" : { "M" : {
-                                "value" : { "N" : "" },
-                                "unit" : { "M" : {
-                                        "name" : { "S" : "" },
-                                        "abbr" : { "S" : "" },
-                                        "unit-type" : { "S" : "" },
-                                        "conv-factor" : { "N" : "" }
+                                "id" : { "N" : "" },
+                                "flow" : { "M" : {
+                                        "value" : { "S" : "" },
+                                        "unit" : { "M" : {
+                                            "name" : { "S" : "cubic feet per second" },
+                                            "abbr" : { "S" : "cfs" },
+                                            "conv-factor" : { "N" : "0.028316847000" }
+                                        }},
+                                        "flow-type" : { "S" : "" }
                                     }
                                 },
-                                "flow-type" : {"S" : "" },
                                 "gages" : { "L" : [
                                     { "M" : {
                                         "id" : { "S" : "USGS-12422500" },
                                         "name" : { "S" : "Spokane River at Spokane, WA" },
-                                        "flow" : { "M" : {} },
-                                        "datetime" : { "S" : "" },
+                                        "values" : { "L" : [] },
                                         "history" : { "L" : [] },
                                         "location" : { "M" : {
                                             "state" : { "M" : {
@@ -50,11 +51,11 @@
                 "PutRequest" : {
                     "Item" : {
                         "pk" : { "S" : "FLOWSOURCE:1" },
-                        "sk" : { "S" : "REGION:SPOKANE" },
+                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
                         "type" : { "S" : "REGION" },
                         "data" : { "M" : {
                             "id" : { "N" : "1" },
-                            "name" : { "S" : "Spokane Area" },
+                            "name" : { "S" : "Spokane/Coeur d'Alene Area" },
                             "boundary" : { "L" : []}
                         }}
                     }
@@ -64,7 +65,7 @@
                 "PutRequest" : {
                     "Item" : {
                         "pk" : { "S" : "FLOWSOURCE:1" },
-                        "sk" : { "S" : "REGION:SPOKANE" },
+                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
                         "type" : { "S" : "SURFSPOT" },
                         "data" : { "M" : {
                             "id" : { "N" : "1" },
@@ -73,13 +74,16 @@
                                 {
                                     "id" : { "N" : "1" },
                                     "name" : { "S" : "Cyclops" },
-                                    "description" : { "M" : {
-                                        "paragraph" : { "S" : "High Water Park and Play does not get any better than this! Although it is large it is really flushy so watch the corners of the wave on the surge as they tend to disappear. Not for the faint of heart this feature comes in at 35,000 cfs and gets better with more water. Be sure to bring a camera." },
-                                        "order" : { "N" : "1" }
-                                    }},
+                                    "description" : { "L" : [
+                                        { "M" : {
+                                            "order" : { "N" : "1" },
+                                            "heading" : { "S" : "" },
+                                            "paragraph" : { "S" : "High Water Park and Play does not get any better than this! Although it is large it is really flushy so watch the corners of the wave on the surge as they tend to disappear. Not for the faint of heart this feature comes in at 35,000 cfs and gets better with more water. Be sure to bring a camera." }
+                                        }}
+                                    ]},
                                     "difficulty" : { "S" : "HARD" },
-                                    "tricks" : { "S" : "" },
-                                    "features" : { "S" : "" },
+                                    "tricks" : { "S" : "spins, loops, cart wheels" },
+                                    "features" : { "S" : "large wave hole" },
                                     "location" : { "M" : {
                                         "state" : { "M" : {
                                             "id" : { "N" : "53" },
@@ -107,21 +111,44 @@
                                         }}
                                     }},
                                     "flow-range" : { "M" : {
-                                        "min-flow" : { "M" : { // TODO work on flow range.
-                                            "gage-height" : { "M" : {
-                                                "name" : { "S" : "" },
-                                                "abbr" : { "S" : "" }
+                                        "min-flow" : { "M" : {
+                                            "value" : { "N" : "35000.0" },
+                                            "unit" : { "M" : {
+                                                "name" : { "S" : "cubic feet per second" },
+                                                "abbr" : { "S" : "cfs" },
+                                                "conv-factor" : { "N" : "0.028316847000" }
                                             }},
-                                            "discharge" : { "M" : {
-
-                                            }}
+                                            "flow-type" : "DISCHARGE"
                                         }},
                                         "max-flow" : { "M" : {
-
+                                            "value" : { "N" : "45000.0" },
+                                            "unit" : { "M" : {
+                                                "name" : { "S" : "cubic feet per second" },
+                                                "abbr" : { "S" : "cfs" },
+                                                "conv-factor" : { "N" : "0.028316847000" }
+                                            }},
+                                            "flow-type" : "DISCHARGE"
                                         }}
                                     }},
                                     "optimum-flow-range" : { "M" : {
-
+                                        "min-flow" : { "M" : {
+                                            "value" : { "N" : "35000.0" },
+                                            "unit" : { "M" : {
+                                                "name" : { "S" : "cubic feet per second" },
+                                                "abbr" : { "S" : "cfs" },
+                                                "conv-factor" : { "N" : "0.028316847000" }
+                                            }},
+                                            "flow-type" : "DISCHARGE"
+                                        }},
+                                        "max-flow" : { "M" : {
+                                            "value" : { "N" : "45000.0" },
+                                            "unit" : { "M" : {
+                                                "name" : { "S" : "cubic feet per second" },
+                                                "abbr" : { "S" : "cfs" },
+                                                "conv-factor" : { "N" : "0.028316847000" }
+                                            }},
+                                            "flow-type" : "DISCHARGE"
+                                        }}
                                     }},
                                     "flow-info" : { "L" : []},
                                     "links" : { "L" : [
@@ -154,13 +181,306 @@
             }},
             {
                 "PutRequest" : {
-                "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE:1" },
-                    "sk" : { "S" : "REGION:SPOKANE" },
-                    "type" : { "S" : "SURFSPOT" }
+                    "Item" : {
+                        "pk" : { "S" : "FLOWSOURCE:2" },
+                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
+                        "type" : { "S" : "FLOWSOURCE" },
+                        "data" : { "M" : {
+                                "id" : { "N" : "" },
+                                "flow" : { "M" : {
+                                        "value" : { "S" : "" },
+                                        "unit" : { "M" : {
+                                            "name" : { "S" : "cubic feet per second" },
+                                            "abbr" : { "S" : "cfs" },
+                                            "conv-factor" : { "N" : "0.028316847000" }
+                                        }},
+                                        "flow-type" : { "S" : "" }
+                                    }
+                                },
+                                "gages" : { "L" : [
+                                    { "M" : {
+                                        "id" : { "S" : "USGS-12419000" },
+                                        "name" : { "S" : "Spokane River near Post Falls, ID" },
+                                        "values" : { "L" : [] },
+                                        "history" : { "L" : [] },
+                                        "location" : { "M" : {
+                                            "state" : { "M" : {
+                                                "id" : { "N" : "16" },
+                                                "name" : { "S" : "Idaho" },
+                                                "abbr" : { "S" : "ID"},
+                                                "country" : { "S" : "USA" }
+                                            }},
+                                            "coordinates" : { "M" : {
+                                                "espg" : { "S" : "4326" },
+                                                "lat" : { "N" : "47.70295737" },
+                                                "lng" : { "N" : "-116.9779747" }
+                                            }}
+                                        }},
+                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000" }
+                                    }}
+                                ]},
+                                "gage-expression" : { "S" : "[USGS-12419000]" }
+                            }
+                        }
+                    }
                 }
+            },
+            {
+                "PutRequest" : {
+                    "Item" : {
+                        "pk" : { "S" : "FLOWSOURCE:2" },
+                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
+                        "type" : { "S" : "REGION" },
+                        "data" : { "M" : {
+                            "id" : { "N" : "1" },
+                            "name" : { "S" : "Spokane/Coeur d'Alene Area" },
+                            "boundary" : { "L" : []}
+                        }}
+                    }
                 }
-            }
+            },
+            {
+                "PutRequest" : {
+                    "Item" : {
+                        "pk" : { "S" : "FLOWSOURCE:2" },
+                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
+                        "type" : { "S" : "SURFSPOT" },
+                        "data" : { "M" : {
+                            "id" : { "N" : "2" },
+                            "name" : { "S" : "Trailer Park" },
+                            "surf-spots" : { "L" : [
+                                {
+                                    "id" : { "N" : "2" },
+                                    "name" : { "S" : "Trailer Park" },
+                                    "description" : { "L" : [
+                                        { "M" : {
+                                            "order" : { "N" : "1" },
+                                            "heading" : { "S" : "" },
+                                            "paragraph" : { "S" : "Trailer Park Wave is a favorite amongst locals. At prime flows it is a wave hole and any wave, hole, or combo moves becomes possible. Below the prime flow range the feature is still surfable, but it does start to get shallow. If not careful it is possible to hit the rock that forms the feature when attempting vertical moves. Above the prime flow range Trailer Park becomes a small breaking wave that is good for spins and small blunts. Trailer Park is a unique feature in that it sits just upstream of where the South/Center Channels and the North Channel of the Spokane River come together, and below the dam of Lake Coeur d’Alene. If the Dam operators are releasing to much flow into the North Channel it will increase the pool height of the water in the South Channel and completely wash out the Feature. Check the link below or call the phone number to find out the flow differential. Prime is for the North Channel to only be providing 5% of the total flow on the Gauge (i.e. 4,000cfs on the gauge, 200 in the North Channel and 3800 in the South Channel). When the North Channel providing more than 25% of the flow on the Gauge, than feature will barely be a small green wave (i.e. 5,000 cfs on the gauge, 1,000 in the North Channel, and 4,000 in the South Channel). Avista daily updated hotline (509) 495-8043." }
+                                        }}
+                                    ]},
+                                    "difficulty" : { "S" : "MEDIUM" },
+                                    "tricks" : { "S" : "Anything is Possible!, Spins, Cartwheels, Loops, Back Loops, Blunts, Helix, McNasty, Phonix Monkey" },
+                                    "features" : { "S" : "easy access, good eddy service" },
+                                    "location" : { "M" : {
+                                        "state" : { "M" : {
+                                            "id" : { "N" : "16" },
+                                            "name" : { "S" : "Idaho" },
+                                            "abbr" : { "S" : "ID"},
+                                            "country" : { "S" : "USA" }
+                                        }},
+                                        "coordinates" : { "M" : {
+                                            "espg" : { "S" : "4326" },
+                                            "lat" : { "N" : "47.70945756623944" },
+                                            "lng" : { "N" : "-116.96675131875466" }
+                                        }}
+                                    }},
+                                    "access" : { "M" : {
+                                        "state" : { "M" : {
+                                            "id" : { "N" : "16" },
+                                            "name" : { "S" : "Idaho" },
+                                            "abbr" : { "S" : "ID"},
+                                            "country" : { "S" : "USA" }
+                                        }},
+                                        "coordinates" : { "M" : {
+                                            "espg" : { "S" : "4326" },
+                                            "lat" : { "N" : "47.71044223021127" },
+                                            "lng" : { "N" : "-116.96900709423221" }
+                                        }}
+                                    }},
+                                    "flow-range" : { "M" : {
+                                        "min-flow" : { "M" : {
+                                            "value" : { "N" : "3200.0" },
+                                            "unit" : { "M" : {
+                                                "name" : { "S" : "cubic feet per second" },
+                                                "abbr" : { "S" : "cfs" },
+                                                "conv-factor" : { "N" : "0.028316847000" }
+                                            }},
+                                            "flow-type" : "DISCHARGE"
+                                        }},
+                                        "max-flow" : { "M" : {
+                                            "value" : { "N" : "7500.0" },
+                                            "unit" : { "M" : {
+                                                "name" : { "S" : "cubic feet per second" },
+                                                "abbr" : { "S" : "cfs" },
+                                                "conv-factor" : { "N" : "0.028316847000" }
+                                            }},
+                                            "flow-type" : "DISCHARGE"
+                                        }}
+                                    }},
+                                    "optimum-flow-range" : { "M" : {
+                                        "min-flow" : { "M" : {
+                                            "value" : { "N" : "4500.0" },
+                                            "unit" : { "M" : {
+                                                "name" : { "S" : "cubic feet per second" },
+                                                "abbr" : { "S" : "cfs" },
+                                                "conv-factor" : { "N" : "0.028316847000" }
+                                            }},
+                                            "flow-type" : "DISCHARGE"
+                                        }},
+                                        "max-flow" : { "M" : {
+                                            "value" : { "N" : "6000.0" },
+                                            "unit" : { "M" : {
+                                                "name" : { "S" : "cubic feet per second" },
+                                                "abbr" : { "S" : "cfs" },
+                                                "conv-factor" : { "N" : "0.028316847000" }
+                                            }},
+                                            "flow-type" : "DISCHARGE"
+                                        }}
+                                    }},
+                                    "flow-info" : { "L" : []},
+                                    "links" : { "L" : [
+                                        {
+                                            "order" : { "N" : "1" },
+                                            "label" : { "S" : "Gage" },
+                                            "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
+                                        }
+                                    ]},
+                                    "images" : { "L" : []},
+                                    "videos" : { "L" : []},
+                                    "history" : { "L" : []}
+                                }
+                            ]},
+                            "location" : { "M" : {
+                                "state" : { "M" : {
+                                    "id" : { "N" : "16" },
+                                    "name" : { "S" : "Idaho" },
+                                    "abbr" : { "S" : "ID"},
+                                    "country" : { "S" : "USA" }
+                                }},
+                                "coordinates" : { "M" : {
+                                    "espg" : { "S" : "4326" },
+                                    "lat" : { "N" : "47.70945756623944" },
+                                    "lng" : { "N" : "-116.96675131875466" }
+                                }}
+                            }}
+                        }}
+                    }
+            }},
+            {
+                "PutRequest" : {
+                    "Item" : {
+                        "pk" : { "S" : "FLOWSOURCE:2" },
+                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
+                        "type" : { "S" : "SURFSPOT" },
+                        "data" : { "M" : {
+                            "id" : { "N" : "3" },
+                            "name" : { "S" : "Corbin" },
+                            "surf-spots" : { "L" : [
+                                {
+                                    "id" : { "N" : "3" },
+                                    "name" : { "S" : "Corbin" },
+                                    "description" : { "L" : [
+                                        { "M" : {
+                                            "order" : { "N" : "1" },
+                                            "heading" : { "S" : "" },
+                                            "paragraph" : { "S" : "Corbin Wave is a large, fast, dynamic, and steep wave that provides some exciting rides. It is definitely a favorite that locals look forward to every spring when the snow melt provides the needed flows. Although the eddy will service you right onto the wave, it and the swirly eddy fence downstream of the wave can intimidate some new boaters. Eddy service is a large eddy on river right, and if this eddy is missed there are multiple other river right eddies just around the corner." }
+                                        }}
+                                    ]},
+                                    "difficulty" : { "S" : "MEDIUM" },
+                                    "tricks" : { "S" : "spins, clean spins, blunts & back blunts, air screws, pan ams, helix, pistol flips" },
+                                    "features" : { "S" : "easy access, good eddy service, big whirlpools, watch out for wood in the flow!" },
+                                    "location" : { "M" : {
+                                        "state" : { "M" : {
+                                            "id" : { "N" : "16" },
+                                            "name" : { "S" : "Idaho" },
+                                            "abbr" : { "S" : "ID"},
+                                            "country" : { "S" : "USA" }
+                                        }},
+                                        "coordinates" : { "M" : {
+                                            "espg" : { "S" : "4326" },
+                                            "lat" : { "N" : "47.704226350842866" },
+                                            "lng" : { "N" : "-116.98678090447382" }
+                                        }}
+                                    }},
+                                    "access" : { "M" : {
+                                        "state" : { "M" : {
+                                            "id" : { "N" : "16" },
+                                            "name" : { "S" : "Idaho" },
+                                            "abbr" : { "S" : "ID"},
+                                            "country" : { "S" : "USA" }
+                                        }},
+                                        "coordinates" : { "M" : {
+                                            "espg" : { "S" : "4326" },
+                                            "lat" : { "N" : "47.704406941391035" },
+                                            "lng" : { "N" : "-116.98791081116408" }
+                                        }}
+                                    }},
+                                    "flow-range" : { "M" : {
+                                        "min-flow" : { "M" : {
+                                            "value" : { "N" : "17000.0" },
+                                            "unit" : { "M" : {
+                                                "name" : { "S" : "cubic feet per second" },
+                                                "abbr" : { "S" : "cfs" },
+                                                "conv-factor" : { "N" : "0.028316847000" }
+                                            }},
+                                            "flow-type" : "DISCHARGE"
+                                        }},
+                                        "max-flow" : { "M" : {
+                                            "value" : { "N" : "24000.0" },
+                                            "unit" : { "M" : {
+                                                "name" : { "S" : "cubic feet per second" },
+                                                "abbr" : { "S" : "cfs" },
+                                                "conv-factor" : { "N" : "0.028316847000" }
+                                            }},
+                                            "flow-type" : "DISCHARGE"
+                                        }}
+                                    }},
+                                    "optimum-flow-range" : { "M" : {
+                                        "min-flow" : { "M" : {
+                                            "value" : { "N" : "19500.0" },
+                                            "unit" : { "M" : {
+                                                "name" : { "S" : "cubic feet per second" },
+                                                "abbr" : { "S" : "cfs" },
+                                                "conv-factor" : { "N" : "0.028316847000" }
+                                            }},
+                                            "flow-type" : "DISCHARGE"
+                                        }},
+                                        "max-flow" : { "M" : {
+                                            "value" : { "N" : "22000.0" },
+                                            "unit" : { "M" : {
+                                                "name" : { "S" : "cubic feet per second" },
+                                                "abbr" : { "S" : "cfs" },
+                                                "conv-factor" : { "N" : "0.028316847000" }
+                                            }},
+                                            "flow-type" : "DISCHARGE"
+                                        }}
+                                    }},
+                                    "flow-info" : { "L" : []},
+                                    "links" : { "L" : [
+                                        {
+                                            "order" : { "N" : "1" },
+                                            "label" : { "S" : "Gage" },
+                                            "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
+                                        }
+                                    ]},
+                                    "images" : { "L" : []},
+                                    "videos" : { "L" : []},
+                                    "history" : { "L" : []}
+                                }
+                            ]},
+                            "location" : { "M" : {
+                                "state" : { "M" : {
+                                    "id" : { "N" : "16" },
+                                    "name" : { "S" : "Idaho" },
+                                    "abbr" : { "S" : "ID"},
+                                    "country" : { "S" : "USA" }
+                                }},
+                                "coordinates" : { "M" : {
+                                    "espg" : { "S" : "4326" },
+                                    "lat" : { "N" : "47.704226350842866" },
+                                    "lng" : { "N" : "-116.98678090447382" }
+                                }}
+                            }}
+                        }}
+                    }
+            }},
+            // TODO: Add Dead Dog
+            // TODO: Add Sullivan, Mini Climax, Duplex
+            // TODO: Add Zoo
+            // TODO: Add Hangman Creek at Spokane Gage
+            // TODO: Add Flower Power
+            // TODO: Add Dirty Mother
         ]
     }
 }
