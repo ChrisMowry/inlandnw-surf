@@ -11,12 +11,7 @@
                                 "id" : { "N" : "" },
                                 "flow" : { "M" : {
                                         "value" : { "S" : "" },
-                                        "unit" : { "M" : {
-                                            "name" : { "S" : "cubic feet per second" },
-                                            "abbr" : { "S" : "cfs" },
-                                            "conv-factor" : { "N" : "0.028316847000" }
-                                        }},
-                                        "flow-type" : { "S" : "" }
+                                        "unit" : { "S" : "CFS" }
                                     }
                                 },
                                 "gages" : { "L" : [
@@ -26,12 +21,7 @@
                                         "values" : { "L" : [] },
                                         "history" : { "L" : [] },
                                         "location" : { "M" : {
-                                            "state" : { "M" : {
-                                                "id" : { "N" : "53" },
-                                                "name" : { "S" : "Washington" },
-                                                "abbr" : { "S" : "WA"},
-                                                "country" : { "S" : "USA" }
-                                            }},
+                                            "state" : { "S" : "WASHINGTON" },
                                             "coordinates" : { "M" : {
                                                 "espg" : { "S" : "4326" },
                                                 "lat" : { "N" : "47.6593354" },
@@ -85,12 +75,7 @@
                                     "tricks" : { "S" : "spins, loops, cart wheels" },
                                     "features" : { "S" : "large wave hole" },
                                     "location" : { "M" : {
-                                        "state" : { "M" : {
-                                            "id" : { "N" : "53" },
-                                            "name" : { "S" : "Washington" },
-                                            "abbr" : { "S" : "WA"},
-                                            "country" : { "S" : "USA" }
-                                        }},
+                                        "state" : { "S" : "WASHINGTON" },
                                         "coordinates" : { "M" : {
                                             "espg" : { "S" : "4326" },
                                             "lat" : { "N" : "47.71085203331206" },
@@ -98,12 +83,7 @@
                                         }}
                                     }},
                                     "access" : { "M" : {
-                                        "state" : { "M" : {
-                                            "id" : { "N" : "53" },
-                                            "name" : { "S" : "Washington" },
-                                            "abbr" : { "S" : "WA"},
-                                            "country" : { "S" : "USA" }
-                                        }},
+                                        "state" : { "S" : "WASHINGTON" },
                                         "coordinates" : { "M" : {
                                             "espg" : { "S" : "4326" },
                                             "lat" : { "N" : "47.710095963583115" },
@@ -113,41 +93,21 @@
                                     "flow-range" : { "M" : {
                                         "min-flow" : { "M" : {
                                             "value" : { "N" : "35000.0" },
-                                            "unit" : { "M" : {
-                                                "name" : { "S" : "cubic feet per second" },
-                                                "abbr" : { "S" : "cfs" },
-                                                "conv-factor" : { "N" : "0.028316847000" }
-                                            }},
-                                            "flow-type" : "DISCHARGE"
+                                            "unit" : { "S" : "CFS" }
                                         }},
                                         "max-flow" : { "M" : {
                                             "value" : { "N" : "45000.0" },
-                                            "unit" : { "M" : {
-                                                "name" : { "S" : "cubic feet per second" },
-                                                "abbr" : { "S" : "cfs" },
-                                                "conv-factor" : { "N" : "0.028316847000" }
-                                            }},
-                                            "flow-type" : "DISCHARGE"
+                                            "unit" : { "S" : "CFS" }
                                         }}
                                     }},
                                     "optimum-flow-range" : { "M" : {
                                         "min-flow" : { "M" : {
                                             "value" : { "N" : "35000.0" },
-                                            "unit" : { "M" : {
-                                                "name" : { "S" : "cubic feet per second" },
-                                                "abbr" : { "S" : "cfs" },
-                                                "conv-factor" : { "N" : "0.028316847000" }
-                                            }},
-                                            "flow-type" : "DISCHARGE"
+                                            "unit" : { "S" : "CFS" }
                                         }},
                                         "max-flow" : { "M" : {
                                             "value" : { "N" : "45000.0" },
-                                            "unit" : { "M" : {
-                                                "name" : { "S" : "cubic feet per second" },
-                                                "abbr" : { "S" : "cfs" },
-                                                "conv-factor" : { "N" : "0.028316847000" }
-                                            }},
-                                            "flow-type" : "DISCHARGE"
+                                            "unit" : { "S" : "CFS" }
                                         }}
                                     }},
                                     "flow-info" : { "L" : []},
@@ -164,12 +124,7 @@
                                 }
                             ]},
                             "location" : { "M" : {
-                                "state" : { "M" : {
-                                    "id" : { "N" : "53" },
-                                    "name" : { "S" : "Washington" },
-                                    "abbr" : { "S" : "WA"},
-                                    "country" : { "S" : "USA" }
-                                }},
+                                "state" : { "S" : "WASHINGTON" },
                                 "coordinates" : { "M" : {
                                     "espg" : { "S" : "4326" },
                                     "lat" : { "N" : "47.71085203331206" },
@@ -189,12 +144,7 @@
                                 "id" : { "N" : "" },
                                 "flow" : { "M" : {
                                         "value" : { "S" : "" },
-                                        "unit" : { "M" : {
-                                            "name" : { "S" : "cubic feet per second" },
-                                            "abbr" : { "S" : "cfs" },
-                                            "conv-factor" : { "N" : "0.028316847000" }
-                                        }},
-                                        "flow-type" : { "S" : "" }
+                                        "unit" : { "S" : "CFS" }
                                     }
                                 },
                                 "gages" : { "L" : [
@@ -204,12 +154,7 @@
                                         "values" : { "L" : [] },
                                         "history" : { "L" : [] },
                                         "location" : { "M" : {
-                                            "state" : { "M" : {
-                                                "id" : { "N" : "16" },
-                                                "name" : { "S" : "Idaho" },
-                                                "abbr" : { "S" : "ID"},
-                                                "country" : { "S" : "USA" }
-                                            }},
+                                            "state" : { "S" : "IDAHO"},
                                             "coordinates" : { "M" : {
                                                 "espg" : { "S" : "4326" },
                                                 "lat" : { "N" : "47.70295737" },
@@ -263,12 +208,7 @@
                                     "tricks" : { "S" : "Anything is Possible!, Spins, Cartwheels, Loops, Back Loops, Blunts, Helix, McNasty, Phonix Monkey" },
                                     "features" : { "S" : "easy access, good eddy service" },
                                     "location" : { "M" : {
-                                        "state" : { "M" : {
-                                            "id" : { "N" : "16" },
-                                            "name" : { "S" : "Idaho" },
-                                            "abbr" : { "S" : "ID"},
-                                            "country" : { "S" : "USA" }
-                                        }},
+                                        "state" : { "S" : "IDAHO" },
                                         "coordinates" : { "M" : {
                                             "espg" : { "S" : "4326" },
                                             "lat" : { "N" : "47.70945756623944" },
@@ -276,12 +216,7 @@
                                         }}
                                     }},
                                     "access" : { "M" : {
-                                        "state" : { "M" : {
-                                            "id" : { "N" : "16" },
-                                            "name" : { "S" : "Idaho" },
-                                            "abbr" : { "S" : "ID"},
-                                            "country" : { "S" : "USA" }
-                                        }},
+                                        "state" : { "S" : "IDAHO" },
                                         "coordinates" : { "M" : {
                                             "espg" : { "S" : "4326" },
                                             "lat" : { "N" : "47.71044223021127" },
@@ -291,63 +226,87 @@
                                     "flow-range" : { "M" : {
                                         "min-flow" : { "M" : {
                                             "value" : { "N" : "3200.0" },
-                                            "unit" : { "M" : {
-                                                "name" : { "S" : "cubic feet per second" },
-                                                "abbr" : { "S" : "cfs" },
-                                                "conv-factor" : { "N" : "0.028316847000" }
-                                            }},
-                                            "flow-type" : "DISCHARGE"
+                                            "unit" : { "S" : "CFS" }
                                         }},
                                         "max-flow" : { "M" : {
                                             "value" : { "N" : "7500.0" },
-                                            "unit" : { "M" : {
-                                                "name" : { "S" : "cubic feet per second" },
-                                                "abbr" : { "S" : "cfs" },
-                                                "conv-factor" : { "N" : "0.028316847000" }
-                                            }},
-                                            "flow-type" : "DISCHARGE"
+                                            "unit" : { "S" : "CFS" }
                                         }}
                                     }},
                                     "optimum-flow-range" : { "M" : {
                                         "min-flow" : { "M" : {
                                             "value" : { "N" : "4500.0" },
-                                            "unit" : { "M" : {
-                                                "name" : { "S" : "cubic feet per second" },
-                                                "abbr" : { "S" : "cfs" },
-                                                "conv-factor" : { "N" : "0.028316847000" }
-                                            }},
-                                            "flow-type" : "DISCHARGE"
+                                            "unit" : { "S" : "CFS" }
                                         }},
                                         "max-flow" : { "M" : {
                                             "value" : { "N" : "6000.0" },
-                                            "unit" : { "M" : {
-                                                "name" : { "S" : "cubic feet per second" },
-                                                "abbr" : { "S" : "cfs" },
-                                                "conv-factor" : { "N" : "0.028316847000" }
-                                            }},
-                                            "flow-type" : "DISCHARGE"
-                                        }}
+                                            "unit" : { "S" : "CFS" }
+                                        }
                                     }},
-                                    "flow-info" : { "L" : []},
+                                    "flow-info" : { "L" : [
+                                        {
+                                            "order" : { "N" : "1" },
+                                            "flow-range" : { "M" : {
+                                                "min-flow" : { "M" : {
+                                                    "value" : { "N" : "3200.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }},
+                                                "max-flow" : { "M" : {
+                                                    "value" : { "N" : "3800.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }},
+                                                "description" : { "S" : "Low End-Shallow Hole" }
+                                            }}
+                                        },
+                                        {
+                                            "order" : { "N" : "2" },
+                                            "flow-range" : { "M" : {
+                                                "min-flow" : { "M" : {
+                                                    "value" : { "N" : "3800.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }},
+                                                "max-flow" : { "M" : {
+                                                    "value" : { "N" : "4800.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }}
+                                            }},
+                                            "description" : { "S" : "Prime" }
+                                            },
+                                        {
+                                            "order" : { "N" : "3" },
+                                            "flow-range" : { "M" : {
+                                                "min-flow" : { "M" : {
+                                                    "value" : { "N" : "4800.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }},
+                                                "max-flow" : { "M" : {
+                                                    "value" : { "N" : "5200.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }}
+                                            }},
+                                            "description" : { "S" : "Upper End- Small Breaking Wave" }
+                                        }
+                                    ]},
                                     "links" : { "L" : [
                                         {
                                             "order" : { "N" : "1" },
                                             "label" : { "S" : "Gage" },
                                             "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
+                                        },
+                                        {
+                                            "order" : { "N" : "1" },
+                                            "label" : { "S" : "Avista" },
+                                            "url" : { "S" : "https://www.myavista.com/about-us/celebrate-our-rivers/water-flow-information"}
                                         }
                                     ]},
                                     "images" : { "L" : []},
                                     "videos" : { "L" : []},
                                     "history" : { "L" : []}
+                                    }
                                 }
                             ]},
                             "location" : { "M" : {
-                                "state" : { "M" : {
-                                    "id" : { "N" : "16" },
-                                    "name" : { "S" : "Idaho" },
-                                    "abbr" : { "S" : "ID"},
-                                    "country" : { "S" : "USA" }
-                                }},
+                                "state" : { "S" : "IDAHO" },
                                 "coordinates" : { "M" : {
                                     "espg" : { "S" : "4326" },
                                     "lat" : { "N" : "47.70945756623944" },
@@ -381,12 +340,7 @@
                                     "tricks" : { "S" : "spins, clean spins, blunts & back blunts, air screws, pan ams, helix, pistol flips" },
                                     "features" : { "S" : "easy access, good eddy service, big whirlpools, watch out for wood in the flow!" },
                                     "location" : { "M" : {
-                                        "state" : { "M" : {
-                                            "id" : { "N" : "16" },
-                                            "name" : { "S" : "Idaho" },
-                                            "abbr" : { "S" : "ID"},
-                                            "country" : { "S" : "USA" }
-                                        }},
+                                        "state" : { "S" : "IDAHO"},
                                         "coordinates" : { "M" : {
                                             "espg" : { "S" : "4326" },
                                             "lat" : { "N" : "47.704226350842866" },
@@ -394,12 +348,7 @@
                                         }}
                                     }},
                                     "access" : { "M" : {
-                                        "state" : { "M" : {
-                                            "id" : { "N" : "16" },
-                                            "name" : { "S" : "Idaho" },
-                                            "abbr" : { "S" : "ID"},
-                                            "country" : { "S" : "USA" }
-                                        }},
+                                        "state" : { "S" : "IDAHO" },
                                         "coordinates" : { "M" : {
                                             "espg" : { "S" : "4326" },
                                             "lat" : { "N" : "47.704406941391035" },
@@ -409,44 +358,53 @@
                                     "flow-range" : { "M" : {
                                         "min-flow" : { "M" : {
                                             "value" : { "N" : "17000.0" },
-                                            "unit" : { "M" : {
-                                                "name" : { "S" : "cubic feet per second" },
-                                                "abbr" : { "S" : "cfs" },
-                                                "conv-factor" : { "N" : "0.028316847000" }
-                                            }},
-                                            "flow-type" : "DISCHARGE"
+                                            "unit" : { "S" : "CFS" }
                                         }},
                                         "max-flow" : { "M" : {
                                             "value" : { "N" : "24000.0" },
-                                            "unit" : { "M" : {
-                                                "name" : { "S" : "cubic feet per second" },
-                                                "abbr" : { "S" : "cfs" },
-                                                "conv-factor" : { "N" : "0.028316847000" }
-                                            }},
-                                            "flow-type" : "DISCHARGE"
+                                            "unit" : { "S" : "CFS" }
                                         }}
                                     }},
                                     "optimum-flow-range" : { "M" : {
                                         "min-flow" : { "M" : {
                                             "value" : { "N" : "19500.0" },
-                                            "unit" : { "M" : {
-                                                "name" : { "S" : "cubic feet per second" },
-                                                "abbr" : { "S" : "cfs" },
-                                                "conv-factor" : { "N" : "0.028316847000" }
-                                            }},
-                                            "flow-type" : "DISCHARGE"
+                                            "unit" : { "S" : "CFS" }
                                         }},
                                         "max-flow" : { "M" : {
                                             "value" : { "N" : "22000.0" },
-                                            "unit" : { "M" : {
-                                                "name" : { "S" : "cubic feet per second" },
-                                                "abbr" : { "S" : "cfs" },
-                                                "conv-factor" : { "N" : "0.028316847000" }
-                                            }},
-                                            "flow-type" : "DISCHARGE"
+                                            "unit" : { "S" : "CFS" }
                                         }}
                                     }},
-                                    "flow-info" : { "L" : []},
+                                    "flow-info" : { "L" : [
+                                        {
+                                            "order" : { "N" : "1" },
+                                            "flow-range" : { "M" : {
+                                                "min-flow" : { "M" : {
+                                                    "value" : { "N" : "17000.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }},
+                                                "max-flow" : { "M" : {
+                                                    "value" : { "N" : "19500.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }}
+                                            }},
+                                            "description" : { "S" : "The wave is still forming and will feel slightly less retentive." }
+                                        },
+                                        {
+                                            "order" : { "N" : "1" },
+                                            "flow-range" : { "M" : {
+                                                "min-flow" : { "M" : {
+                                                    "value" : { "N" : "22000.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }},
+                                                "max-flow" : { "M" : {
+                                                    "value" : { "N" : "24000.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }}
+                                            }},
+                                            "description" : { "S" : "The wave starts to periodically surge green and the surfer right shoulder starts to lose shape." }
+                                        }
+                                    ]},
                                     "links" : { "L" : [
                                         {
                                             "order" : { "N" : "1" },
@@ -460,12 +418,7 @@
                                 }
                             ]},
                             "location" : { "M" : {
-                                "state" : { "M" : {
-                                    "id" : { "N" : "16" },
-                                    "name" : { "S" : "Idaho" },
-                                    "abbr" : { "S" : "ID"},
-                                    "country" : { "S" : "USA" }
-                                }},
+                                "state" : { "S" : "IDAHO" },
                                 "coordinates" : { "M" : {
                                     "espg" : { "S" : "4326" },
                                     "lat" : { "N" : "47.704226350842866" },
@@ -475,10 +428,156 @@
                         }}
                     }
             }},
-            // TODO: Add Dead Dog
+                        {
+                "PutRequest" : {
+                    "Item" : {
+                        "pk" : { "S" : "FLOWSOURCE:2" },
+                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
+                        "type" : { "S" : "SURFSPOT" },
+                        "data" : { "M" : {
+                            "id" : { "N" : "4" },
+                            "name" : { "S" : "Dead Dog" },
+                            "surf-spots" : { "L" : [
+                                {
+                                    "id" : { "N" : "4" },
+                                    "name" : { "S" : "Dead Dog" },
+                                    "description" : { "L" : [
+                                        { "M" : {
+                                            "order" : { "N" : "1" },
+                                            "heading" : { "S" : "" },
+                                            "paragraph" : { "S" : "This hole has a tendency to get very retentive in the low 20,000's. Locals tend to shift up to Corbin wave for prime flows in this range." }
+                                        }}
+                                    ]},
+                                    "difficulty" : { "S" : "MEDIUM" },
+                                    "tricks" : { "S" : "spins, loops, cart wheels" },
+                                    "features" : { "S" : "easy access, good eddy service" },
+                                    "location" : { "M" : {
+                                        "state" : { "S" : "WASHINGTON"},
+                                        "coordinates" : { "M" : {
+                                            "espg" : { "S" : "4326" },
+                                            "lat" : { "N" : "47.69866969949513" },
+                                            "lng" : { "N" : "-117.04397406915203" }
+                                        }}
+                                    }},
+                                    "access" : { "M" : {
+                                        "state" : { "S" : "WASHINGTON" },
+                                        "coordinates" : { "M" : {
+                                            "espg" : { "S" : "4326" },
+                                            "lat" : { "N" : "47.69977737067392" },
+                                            "lng" : { "N" : "-117.04339913207552" }
+                                        }}
+                                    }},
+                                    "flow-range" : { "M" : {
+                                        "min-flow" : { "M" : {
+                                            "value" : { "N" : "11000.0" },
+                                            "unit" : { "S" : "CFS" }
+                                        }},
+                                        "max-flow" : { "M" : {
+                                            "value" : { "N" : "45000.0" },
+                                            "unit" : { "S" : "CFS" }
+                                        }}
+                                    }},
+                                    "optimum-flow-range" : { "M" : {
+                                        "min-flow" : { "M" : {
+                                            "value" : { "N" : "15000.0" },
+                                            "unit" : { "S" : "CFS" }
+                                        }},
+                                        "max-flow" : { "M" : {
+                                            "value" : { "N" : "19000.0" },
+                                            "unit" : { "S" : "CFS" }
+                                        }}
+                                    }},
+                                    "flow-info" : { "L" : [
+                                        {
+                                            "order" : { "N" : "1" },
+                                            "flow-range" : { "M" : {
+                                                "min-flow" : { "M" : {
+                                                    "value" : { "N" : "11000.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }},
+                                                "max-flow" : { "M" : {
+                                                    "value" : { "N" : "13000.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }}
+                                            }},
+                                            "description" : { "S" : "Tiny and shallow" }
+                                        },
+                                        {
+                                            "order" : { "N" : "2" },
+                                            "flow-range" : { "M" : {
+                                                "min-flow" : { "M" : {
+                                                    "value" : { "N" : "20000.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }},
+                                                "max-flow" : { "M" : {
+                                                    "value" : { "N" : "45000.0" },
+                                                    "unit" : { "S" : "CFS" }
+                                                }}
+                                            }},
+                                            "description" : { "S" : "Surfer's left becomes very sticky" }
+                                        }
+                                    ]},
+                                    "links" : { "L" : [
+                                        {
+                                            "order" : { "N" : "1" },
+                                            "label" : { "S" : "Gage" },
+                                            "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
+                                        }
+                                    ]},
+                                    "images" : { "L" : []},
+                                    "videos" : { "L" : []},
+                                    "history" : { "L" : []}
+                                }
+                            ]},
+                            "location" : { "M" : {
+                                "state" : { "S" : "WASHINGTON"},
+                                "coordinates" : { "M" : {
+                                    "espg" : { "S" : "4326" },
+                                    "lat" : { "N" : "47.704226350842866" },
+                                    "lng" : { "N" : "-116.98678090447382" }
+                                }}
+                            }}
+                        }}
+                    }
+            }},
             // TODO: Add Sullivan, Mini Climax, Duplex
             // TODO: Add Zoo
-            // TODO: Add Hangman Creek at Spokane Gage
+            {
+                "PutRequest" : {
+                    "Item" : {
+                        "pk" : { "S" : "FLOWSOURCE:3" },
+                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
+                        "type" : { "S" : "FLOWSOURCE" },
+                        "data" : { "M" : {
+                                "id" : { "N" : "" },
+                                "flow" : { "M" : {
+                                        "value" : { "S" : "" },
+                                        "unit" : { "S" : "FT" }
+                                    }
+                                },
+                                "gages" : { "L" : [
+                                    { "M" : {
+                                        "id" : { "S" : "USGS-12424000" },
+                                        "name" : { "S" : "Hangman Creek at Spokane, WA" },
+                                        "values" : { "L" : [] },
+                                        "history" : { "L" : [] },
+                                        "location" : { "M" : {
+                                            "state" : { "S" : "WASHINGTON"},
+                                            "coordinates" : { "M" : {
+                                                "espg" : { "S" : "4326" },
+                                                "lat" : { "N" : "47.6526688" },
+                                                "lng" : { "N" : "-117.449658" }
+                                            }}
+                                        }},
+                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12424000" }
+                                    }}
+                                ]},
+                                "gage-expression" : { "S" : "[USGS-12424000]" }
+                            }
+                        }
+                    }
+                }
+            }
             // TODO: Add Flower Power
             // TODO: Add Dirty Mother
         ]
