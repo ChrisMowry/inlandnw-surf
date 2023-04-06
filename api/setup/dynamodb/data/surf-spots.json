@@ -1,585 +1,1235 @@
 {
-    "RequestItems": {
-        "surf-spots": [
-            {
-                "PutRequest" : {
-                    "Item" : {
-                        "pk" : { "S" : "FLOWSOURCE:1" },
-                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
-                        "type" : { "S" : "FLOWSOURCE" },
-                        "data" : { "M" : {
-                                "id" : { "N" : "" },
-                                "flow" : { "M" : {
-                                        "value" : { "S" : "" },
-                                        "unit" : { "S" : "CFS" }
-                                    }
-                                },
-                                "gages" : { "L" : [
-                                    { "M" : {
-                                        "id" : { "S" : "USGS-12422500" },
-                                        "name" : { "S" : "Spokane River at Spokane, WA" },
-                                        "values" : { "L" : [] },
-                                        "history" : { "L" : [] },
-                                        "location" : { "M" : {
-                                            "state" : { "S" : "WASHINGTON" },
-                                            "coordinates" : { "M" : {
-                                                "espg" : { "S" : "4326" },
-                                                "lat" : { "N" : "47.6593354" },
-                                                "lng" : { "N" : "-117.4491029" }
-                                            }}
-                                        }},
-                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12422500" }
-                                    }}
-                                ]},
-                                "gage-expression" : { "S" : "[USGS-12422500]" }
-                            }
-                        }
-                    }
-                }
-            },
-            {
-                "PutRequest" : {
-                    "Item" : {
-                        "pk" : { "S" : "FLOWSOURCE:1" },
-                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
-                        "type" : { "S" : "REGION" },
-                        "data" : { "M" : {
+    "surf-spots": [
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#1" },
+                    "sk" : { "S" : "FLOWSOURCE" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
                             "id" : { "N" : "1" },
-                            "name" : { "S" : "Spokane/Coeur d'Alene Area" },
-                            "boundary" : { "L" : []}
-                        }}
-                    }
-                }
-            },
-            {
-                "PutRequest" : {
-                    "Item" : {
-                        "pk" : { "S" : "FLOWSOURCE:1" },
-                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
-                        "type" : { "S" : "SURFSPOT" },
-                        "data" : { "M" : {
-                            "id" : { "N" : "1" },
-                            "name" : { "S" : "Cyclops" },
-                            "surf-spots" : { "L" : [
-                                {
-                                    "id" : { "N" : "1" },
-                                    "name" : { "S" : "Cyclops" },
-                                    "description" : { "L" : [
-                                        { "M" : {
-                                            "order" : { "N" : "1" },
-                                            "heading" : { "S" : "" },
-                                            "paragraph" : { "S" : "High Water Park and Play does not get any better than this! Although it is large it is really flushy so watch the corners of the wave on the surge as they tend to disappear. Not for the faint of heart this feature comes in at 35,000 cfs and gets better with more water. Be sure to bring a camera." }
-                                        }}
-                                    ]},
-                                    "difficulty" : { "S" : "HARD" },
-                                    "tricks" : { "S" : "spins, loops, cart wheels" },
-                                    "features" : { "S" : "large wave hole" },
+                            "flow" : { "M" : {
+                                    "value" : { "S" : "" },
+                                    "unit" : { "S" : "CFS" }
+                                }
+                            },
+                            "gages" : { "L" : [
+                                { "M" : {
+                                    "id" : { "S" : "USGS-12422500" },
+                                    "name" : { "S" : "Spokane River at Spokane, WA" },
+                                    "values" : { "L" : [] },
+                                    "history" : { "L" : [] },
                                     "location" : { "M" : {
                                         "state" : { "S" : "WASHINGTON" },
                                         "coordinates" : { "M" : {
                                             "espg" : { "S" : "4326" },
-                                            "lat" : { "N" : "47.71085203331206" },
-                                            "lng" : { "N" : "-117.50083475761053" }
+                                            "lat" : { "N" : "47.6593354" },
+                                            "lng" : { "N" : "-117.4491029" }
                                         }}
                                     }},
-                                    "access" : { "M" : {
-                                        "state" : { "S" : "WASHINGTON" },
-                                        "coordinates" : { "M" : {
-                                            "espg" : { "S" : "4326" },
-                                            "lat" : { "N" : "47.710095963583115" },
-                                            "lng" : { "N" : "-117.49959010672329" }
-                                        }}
-                                    }},
-                                    "flow-range" : { "M" : {
-                                        "min-flow" : { "M" : {
-                                            "value" : { "N" : "35000.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }},
-                                        "max-flow" : { "M" : {
-                                            "value" : { "N" : "45000.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }}
-                                    }},
-                                    "optimum-flow-range" : { "M" : {
-                                        "min-flow" : { "M" : {
-                                            "value" : { "N" : "35000.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }},
-                                        "max-flow" : { "M" : {
-                                            "value" : { "N" : "45000.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }}
-                                    }},
-                                    "flow-info" : { "L" : []},
-                                    "links" : { "L" : [
-                                        {
-                                            "order" : { "N" : "1" },
-                                            "label" : { "S" : "Gage" },
-                                            "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12422500"}
-                                        }
-                                    ]},
-                                    "images" : { "L" : []},
-                                    "videos" : { "L" : []},
-                                    "history" : { "L" : []}
-                                }
-                            ]},
-                            "location" : { "M" : {
-                                "state" : { "S" : "WASHINGTON" },
-                                "coordinates" : { "M" : {
-                                    "espg" : { "S" : "4326" },
-                                    "lat" : { "N" : "47.71085203331206" },
-                                    "lng" : { "N" : "-117.50083475761053" }
+                                    "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12422500" }
                                 }}
-                            }}
-                        }}
-                    }
-            }},
-            {
-                "PutRequest" : {
-                    "Item" : {
-                        "pk" : { "S" : "FLOWSOURCE:2" },
-                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
-                        "type" : { "S" : "FLOWSOURCE" },
-                        "data" : { "M" : {
-                                "id" : { "N" : "" },
-                                "flow" : { "M" : {
-                                        "value" : { "S" : "" },
-                                        "unit" : { "S" : "CFS" }
-                                    }
-                                },
-                                "gages" : { "L" : [
-                                    { "M" : {
-                                        "id" : { "S" : "USGS-12419000" },
-                                        "name" : { "S" : "Spokane River near Post Falls, ID" },
-                                        "values" : { "L" : [] },
-                                        "history" : { "L" : [] },
-                                        "location" : { "M" : {
-                                            "state" : { "S" : "IDAHO"},
-                                            "coordinates" : { "M" : {
-                                                "espg" : { "S" : "4326" },
-                                                "lat" : { "N" : "47.70295737" },
-                                                "lng" : { "N" : "-116.9779747" }
-                                            }}
-                                        }},
-                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000" }
-                                    }}
-                                ]},
-                                "gage-expression" : { "S" : "[USGS-12419000]" }
-                            }
-                        }
-                    }
-                }
-            },
-            {
-                "PutRequest" : {
-                    "Item" : {
-                        "pk" : { "S" : "FLOWSOURCE:2" },
-                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
-                        "type" : { "S" : "REGION" },
-                        "data" : { "M" : {
-                            "id" : { "N" : "1" },
-                            "name" : { "S" : "Spokane/Coeur d'Alene Area" },
-                            "boundary" : { "L" : []}
-                        }}
-                    }
-                }
-            },
-            {
-                "PutRequest" : {
-                    "Item" : {
-                        "pk" : { "S" : "FLOWSOURCE:2" },
-                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
-                        "type" : { "S" : "SURFSPOT" },
-                        "data" : { "M" : {
-                            "id" : { "N" : "2" },
-                            "name" : { "S" : "Trailer Park" },
-                            "surf-spots" : { "L" : [
-                                {
-                                    "id" : { "N" : "2" },
-                                    "name" : { "S" : "Trailer Park" },
-                                    "description" : { "L" : [
-                                        { "M" : {
-                                            "order" : { "N" : "1" },
-                                            "heading" : { "S" : "" },
-                                            "paragraph" : { "S" : "Trailer Park Wave is a favorite amongst locals. At prime flows it is a wave hole and any wave, hole, or combo moves becomes possible. Below the prime flow range the feature is still surfable, but it does start to get shallow. If not careful it is possible to hit the rock that forms the feature when attempting vertical moves. Above the prime flow range Trailer Park becomes a small breaking wave that is good for spins and small blunts. Trailer Park is a unique feature in that it sits just upstream of where the South/Center Channels and the North Channel of the Spokane River come together, and below the dam of Lake Coeur d’Alene. If the Dam operators are releasing to much flow into the North Channel it will increase the pool height of the water in the South Channel and completely wash out the Feature. Check the link below or call the phone number to find out the flow differential. Prime is for the North Channel to only be providing 5% of the total flow on the Gauge (i.e. 4,000cfs on the gauge, 200 in the North Channel and 3800 in the South Channel). When the North Channel providing more than 25% of the flow on the Gauge, than feature will barely be a small green wave (i.e. 5,000 cfs on the gauge, 1,000 in the North Channel, and 4,000 in the South Channel). Avista daily updated hotline (509) 495-8043." }
-                                        }}
-                                    ]},
-                                    "difficulty" : { "S" : "MEDIUM" },
-                                    "tricks" : { "S" : "Anything is Possible!, Spins, Cartwheels, Loops, Back Loops, Blunts, Helix, McNasty, Phonix Monkey" },
-                                    "features" : { "S" : "easy access, good eddy service" },
-                                    "location" : { "M" : {
-                                        "state" : { "S" : "IDAHO" },
-                                        "coordinates" : { "M" : {
-                                            "espg" : { "S" : "4326" },
-                                            "lat" : { "N" : "47.70945756623944" },
-                                            "lng" : { "N" : "-116.96675131875466" }
-                                        }}
-                                    }},
-                                    "access" : { "M" : {
-                                        "state" : { "S" : "IDAHO" },
-                                        "coordinates" : { "M" : {
-                                            "espg" : { "S" : "4326" },
-                                            "lat" : { "N" : "47.71044223021127" },
-                                            "lng" : { "N" : "-116.96900709423221" }
-                                        }}
-                                    }},
-                                    "flow-range" : { "M" : {
-                                        "min-flow" : { "M" : {
-                                            "value" : { "N" : "3200.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }},
-                                        "max-flow" : { "M" : {
-                                            "value" : { "N" : "7500.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }}
-                                    }},
-                                    "optimum-flow-range" : { "M" : {
-                                        "min-flow" : { "M" : {
-                                            "value" : { "N" : "4500.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }},
-                                        "max-flow" : { "M" : {
-                                            "value" : { "N" : "6000.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }
-                                    }},
-                                    "flow-info" : { "L" : [
-                                        {
-                                            "order" : { "N" : "1" },
-                                            "flow-range" : { "M" : {
-                                                "min-flow" : { "M" : {
-                                                    "value" : { "N" : "3200.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }},
-                                                "max-flow" : { "M" : {
-                                                    "value" : { "N" : "3800.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }},
-                                                "description" : { "S" : "Low End-Shallow Hole" }
-                                            }}
-                                        },
-                                        {
-                                            "order" : { "N" : "2" },
-                                            "flow-range" : { "M" : {
-                                                "min-flow" : { "M" : {
-                                                    "value" : { "N" : "3800.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }},
-                                                "max-flow" : { "M" : {
-                                                    "value" : { "N" : "4800.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }}
-                                            }},
-                                            "description" : { "S" : "Prime" }
-                                            },
-                                        {
-                                            "order" : { "N" : "3" },
-                                            "flow-range" : { "M" : {
-                                                "min-flow" : { "M" : {
-                                                    "value" : { "N" : "4800.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }},
-                                                "max-flow" : { "M" : {
-                                                    "value" : { "N" : "5200.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }}
-                                            }},
-                                            "description" : { "S" : "Upper End- Small Breaking Wave" }
-                                        }
-                                    ]},
-                                    "links" : { "L" : [
-                                        {
-                                            "order" : { "N" : "1" },
-                                            "label" : { "S" : "Gage" },
-                                            "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
-                                        },
-                                        {
-                                            "order" : { "N" : "1" },
-                                            "label" : { "S" : "Avista" },
-                                            "url" : { "S" : "https://www.myavista.com/about-us/celebrate-our-rivers/water-flow-information"}
-                                        }
-                                    ]},
-                                    "images" : { "L" : []},
-                                    "videos" : { "L" : []},
-                                    "history" : { "L" : []}
-                                    }
-                                }
                             ]},
-                            "location" : { "M" : {
-                                "state" : { "S" : "IDAHO" },
-                                "coordinates" : { "M" : {
-                                    "espg" : { "S" : "4326" },
-                                    "lat" : { "N" : "47.70945756623944" },
-                                    "lng" : { "N" : "-116.96675131875466" }
-                                }}
-                            }}
-                        }}
-                    }
-            }},
-            {
-                "PutRequest" : {
-                    "Item" : {
-                        "pk" : { "S" : "FLOWSOURCE:2" },
-                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
-                        "type" : { "S" : "SURFSPOT" },
-                        "data" : { "M" : {
-                            "id" : { "N" : "3" },
-                            "name" : { "S" : "Corbin" },
-                            "surf-spots" : { "L" : [
-                                {
-                                    "id" : { "N" : "3" },
-                                    "name" : { "S" : "Corbin" },
-                                    "description" : { "L" : [
-                                        { "M" : {
-                                            "order" : { "N" : "1" },
-                                            "heading" : { "S" : "" },
-                                            "paragraph" : { "S" : "Corbin Wave is a large, fast, dynamic, and steep wave that provides some exciting rides. It is definitely a favorite that locals look forward to every spring when the snow melt provides the needed flows. Although the eddy will service you right onto the wave, it and the swirly eddy fence downstream of the wave can intimidate some new boaters. Eddy service is a large eddy on river right, and if this eddy is missed there are multiple other river right eddies just around the corner." }
-                                        }}
-                                    ]},
-                                    "difficulty" : { "S" : "MEDIUM" },
-                                    "tricks" : { "S" : "spins, clean spins, blunts & back blunts, air screws, pan ams, helix, pistol flips" },
-                                    "features" : { "S" : "easy access, good eddy service, big whirlpools, watch out for wood in the flow!" },
-                                    "location" : { "M" : {
-                                        "state" : { "S" : "IDAHO"},
-                                        "coordinates" : { "M" : {
-                                            "espg" : { "S" : "4326" },
-                                            "lat" : { "N" : "47.704226350842866" },
-                                            "lng" : { "N" : "-116.98678090447382" }
-                                        }}
-                                    }},
-                                    "access" : { "M" : {
-                                        "state" : { "S" : "IDAHO" },
-                                        "coordinates" : { "M" : {
-                                            "espg" : { "S" : "4326" },
-                                            "lat" : { "N" : "47.704406941391035" },
-                                            "lng" : { "N" : "-116.98791081116408" }
-                                        }}
-                                    }},
-                                    "flow-range" : { "M" : {
-                                        "min-flow" : { "M" : {
-                                            "value" : { "N" : "17000.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }},
-                                        "max-flow" : { "M" : {
-                                            "value" : { "N" : "24000.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }}
-                                    }},
-                                    "optimum-flow-range" : { "M" : {
-                                        "min-flow" : { "M" : {
-                                            "value" : { "N" : "19500.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }},
-                                        "max-flow" : { "M" : {
-                                            "value" : { "N" : "22000.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }}
-                                    }},
-                                    "flow-info" : { "L" : [
-                                        {
-                                            "order" : { "N" : "1" },
-                                            "flow-range" : { "M" : {
-                                                "min-flow" : { "M" : {
-                                                    "value" : { "N" : "17000.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }},
-                                                "max-flow" : { "M" : {
-                                                    "value" : { "N" : "19500.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }}
-                                            }},
-                                            "description" : { "S" : "The wave is still forming and will feel slightly less retentive." }
-                                        },
-                                        {
-                                            "order" : { "N" : "1" },
-                                            "flow-range" : { "M" : {
-                                                "min-flow" : { "M" : {
-                                                    "value" : { "N" : "22000.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }},
-                                                "max-flow" : { "M" : {
-                                                    "value" : { "N" : "24000.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }}
-                                            }},
-                                            "description" : { "S" : "The wave starts to periodically surge green and the surfer right shoulder starts to lose shape." }
-                                        }
-                                    ]},
-                                    "links" : { "L" : [
-                                        {
-                                            "order" : { "N" : "1" },
-                                            "label" : { "S" : "Gage" },
-                                            "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
-                                        }
-                                    ]},
-                                    "images" : { "L" : []},
-                                    "videos" : { "L" : []},
-                                    "history" : { "L" : []}
-                                }
-                            ]},
-                            "location" : { "M" : {
-                                "state" : { "S" : "IDAHO" },
-                                "coordinates" : { "M" : {
-                                    "espg" : { "S" : "4326" },
-                                    "lat" : { "N" : "47.704226350842866" },
-                                    "lng" : { "N" : "-116.98678090447382" }
-                                }}
-                            }}
-                        }}
-                    }
-            }},
-                        {
-                "PutRequest" : {
-                    "Item" : {
-                        "pk" : { "S" : "FLOWSOURCE:2" },
-                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
-                        "type" : { "S" : "SURFSPOT" },
-                        "data" : { "M" : {
-                            "id" : { "N" : "4" },
-                            "name" : { "S" : "Dead Dog" },
-                            "surf-spots" : { "L" : [
-                                {
-                                    "id" : { "N" : "4" },
-                                    "name" : { "S" : "Dead Dog" },
-                                    "description" : { "L" : [
-                                        { "M" : {
-                                            "order" : { "N" : "1" },
-                                            "heading" : { "S" : "" },
-                                            "paragraph" : { "S" : "This hole has a tendency to get very retentive in the low 20,000's. Locals tend to shift up to Corbin wave for prime flows in this range." }
-                                        }}
-                                    ]},
-                                    "difficulty" : { "S" : "MEDIUM" },
-                                    "tricks" : { "S" : "spins, loops, cart wheels" },
-                                    "features" : { "S" : "easy access, good eddy service" },
-                                    "location" : { "M" : {
-                                        "state" : { "S" : "WASHINGTON"},
-                                        "coordinates" : { "M" : {
-                                            "espg" : { "S" : "4326" },
-                                            "lat" : { "N" : "47.69866969949513" },
-                                            "lng" : { "N" : "-117.04397406915203" }
-                                        }}
-                                    }},
-                                    "access" : { "M" : {
-                                        "state" : { "S" : "WASHINGTON" },
-                                        "coordinates" : { "M" : {
-                                            "espg" : { "S" : "4326" },
-                                            "lat" : { "N" : "47.69977737067392" },
-                                            "lng" : { "N" : "-117.04339913207552" }
-                                        }}
-                                    }},
-                                    "flow-range" : { "M" : {
-                                        "min-flow" : { "M" : {
-                                            "value" : { "N" : "11000.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }},
-                                        "max-flow" : { "M" : {
-                                            "value" : { "N" : "45000.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }}
-                                    }},
-                                    "optimum-flow-range" : { "M" : {
-                                        "min-flow" : { "M" : {
-                                            "value" : { "N" : "15000.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }},
-                                        "max-flow" : { "M" : {
-                                            "value" : { "N" : "19000.0" },
-                                            "unit" : { "S" : "CFS" }
-                                        }}
-                                    }},
-                                    "flow-info" : { "L" : [
-                                        {
-                                            "order" : { "N" : "1" },
-                                            "flow-range" : { "M" : {
-                                                "min-flow" : { "M" : {
-                                                    "value" : { "N" : "11000.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }},
-                                                "max-flow" : { "M" : {
-                                                    "value" : { "N" : "13000.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }}
-                                            }},
-                                            "description" : { "S" : "Tiny and shallow" }
-                                        },
-                                        {
-                                            "order" : { "N" : "2" },
-                                            "flow-range" : { "M" : {
-                                                "min-flow" : { "M" : {
-                                                    "value" : { "N" : "20000.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }},
-                                                "max-flow" : { "M" : {
-                                                    "value" : { "N" : "45000.0" },
-                                                    "unit" : { "S" : "CFS" }
-                                                }}
-                                            }},
-                                            "description" : { "S" : "Surfer's left becomes very sticky" }
-                                        }
-                                    ]},
-                                    "links" : { "L" : [
-                                        {
-                                            "order" : { "N" : "1" },
-                                            "label" : { "S" : "Gage" },
-                                            "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
-                                        }
-                                    ]},
-                                    "images" : { "L" : []},
-                                    "videos" : { "L" : []},
-                                    "history" : { "L" : []}
-                                }
-                            ]},
-                            "location" : { "M" : {
-                                "state" : { "S" : "WASHINGTON"},
-                                "coordinates" : { "M" : {
-                                    "espg" : { "S" : "4326" },
-                                    "lat" : { "N" : "47.704226350842866" },
-                                    "lng" : { "N" : "-116.98678090447382" }
-                                }}
-                            }}
-                        }}
-                    }
-            }},
-            // TODO: Add Sullivan, Mini Climax, Duplex
-            // TODO: Add Zoo
-            {
-                "PutRequest" : {
-                    "Item" : {
-                        "pk" : { "S" : "FLOWSOURCE:3" },
-                        "sk" : { "S" : "REGION:SPOKANE-CDA" },
-                        "type" : { "S" : "FLOWSOURCE" },
-                        "data" : { "M" : {
-                                "id" : { "N" : "" },
-                                "flow" : { "M" : {
-                                        "value" : { "S" : "" },
-                                        "unit" : { "S" : "FT" }
-                                    }
-                                },
-                                "gages" : { "L" : [
-                                    { "M" : {
-                                        "id" : { "S" : "USGS-12424000" },
-                                        "name" : { "S" : "Hangman Creek at Spokane, WA" },
-                                        "values" : { "L" : [] },
-                                        "history" : { "L" : [] },
-                                        "location" : { "M" : {
-                                            "state" : { "S" : "WASHINGTON"},
-                                            "coordinates" : { "M" : {
-                                                "espg" : { "S" : "4326" },
-                                                "lat" : { "N" : "47.6526688" },
-                                                "lng" : { "N" : "-117.449658" }
-                                            }}
-                                        }},
-                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12424000" }
-                                    }}
-                                ]},
-                                "gage-expression" : { "S" : "[USGS-12424000]" }
-                            }
+                            "gage-expression" : { "S" : "[USGS-12422500]" }
                         }
                     }
                 }
             }
-            // TODO: Add Flower Power
-            // TODO: Add Dirty Mother
-        ]
-    }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#1" },
+                    "sk" : { "S" : "REGION#1" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
+                        "id" : { "N" : "1" },
+                        "name" : { "S" : "Spokane/Coeur d'Alene Area" },
+                        "boundary" : { "L" : []}
+                    }}
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#1" },
+                    "sk" : { "S" : "SURFSPOT#1" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
+                        "id" : { "N" : "1" },
+                        "name" : { "S" : "Cyclops" },
+                        "surf-spots" : { "L" : [
+                            { "M" : {
+                                "id" : { "N" : "1" },
+                                "name" : { "S" : "Cyclops" },
+                                "description" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "heading" : { "S" : "" },
+                                        "paragraph" : { "S" : "High Water Park and Play does not get any better than this! Although it is large it is really flushy so watch the corners of the wave on the surge as they tend to disappear. Not for the faint of heart this feature comes in at 35,000 cfs and gets better with more water. Be sure to bring a camera." }
+                                    }}
+                                ]},
+                                "difficulty" : { "S" : "HARD" },
+                                "tricks" : { "S" : "spins, loops, cart wheels" },
+                                "features" : { "S" : "large wave hole" },
+                                "location" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON" },
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.71085203331206" },
+                                        "lng" : { "N" : "-117.50083475761053" }
+                                    }}
+                                }},
+                                "access" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON" },
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.710095963583115" },
+                                        "lng" : { "N" : "-117.49959010672329" }
+                                    }}
+                                }},
+                                "flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "35000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "45000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "optimum-flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "35000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "45000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "flow-info" : { "L" : []},
+                                "links" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "label" : { "S" : "Gage" },
+                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12422500"}
+                                    }}
+                                ]},
+                                "images" : { "L" : []},
+                                "videos" : { "L" : []},
+                                "history" : { "L" : []}
+                            }
+                        }]},
+                        "location" : { "M" : {
+                            "state" : { "S" : "WASHINGTON" },
+                            "coordinates" : { "M" : {
+                                "espg" : { "S" : "4326" },
+                                "lat" : { "N" : "47.71085203331206" },
+                                "lng" : { "N" : "-117.50083475761053" }
+                            }}
+                        }}
+                    }}
+                }
+        }},
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#2" },
+                    "sk" : { "S" : "FLOWSOURCE" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
+                            "id" : { "N" : "2" },
+                            "flow" : { "M" : {
+                                    "value" : { "S" : "" },
+                                    "unit" : { "S" : "CFS" }
+                                }
+                            },
+                            "gages" : { "L" : [
+                                { "M" : {
+                                    "id" : { "S" : "USGS-12419000" },
+                                    "name" : { "S" : "Spokane River near Post Falls, ID" },
+                                    "values" : { "L" : [] },
+                                    "history" : { "L" : [] },
+                                    "location" : { "M" : {
+                                        "state" : { "S" : "IDAHO"},
+                                        "coordinates" : { "M" : {
+                                            "espg" : { "S" : "4326" },
+                                            "lat" : { "N" : "47.70295737" },
+                                            "lng" : { "N" : "-116.9779747" }
+                                        }}
+                                    }},
+                                    "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000" }
+                                }}
+                            ]},
+                            "gage-expression" : { "S" : "[USGS-12419000]" }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#2" },
+                    "sk" : { "S" : "REGION#1" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
+                        "id" : { "N" : "1" },
+                        "name" : { "S" : "Spokane/Coeur d'Alene Area" },
+                        "boundary" : { "L" : []}
+                    }}
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#2" },
+                    "sk" : { "S" : "SURFSPOT#2" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
+                        "id" : { "N" : "2" },
+                        "name" : { "S" : "Trailer Park" },
+                        "surf-spots" : { "L" : [
+                            { "M" : {
+                                "id" : { "N" : "2" },
+                                "name" : { "S" : "Trailer Park" },
+                                "description" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "heading" : { "S" : "" },
+                                        "paragraph" : { "S" : "Trailer Park Wave is a favorite amongst locals. At prime flows it is a wave hole and any wave, hole, or combo moves becomes possible. Below the prime flow range the feature is still surfable, but it does start to get shallow. If not careful it is possible to hit the rock that forms the feature when attempting vertical moves. Above the prime flow range Trailer Park becomes a small breaking wave that is good for spins and small blunts. Trailer Park is a unique feature in that it sits just upstream of where the South/Center Channels and the North Channel of the Spokane River come together, and below the dam of Lake Coeur d’Alene. If the Dam operators are releasing to much flow into the North Channel it will increase the pool height of the water in the South Channel and completely wash out the Feature. Check the link below or call the phone number to find out the flow differential. Prime is for the North Channel to only be providing 5% of the total flow on the Gauge (i.e. 4,000cfs on the gauge, 200 in the North Channel and 3800 in the South Channel). When the North Channel providing more than 25% of the flow on the Gauge, than feature will barely be a small green wave (i.e. 5,000 cfs on the gauge, 1,000 in the North Channel, and 4,000 in the South Channel). Avista daily updated hotline (509) 495-8043." }
+                                    }}
+                                ]},
+                                "difficulty" : { "S" : "MEDIUM" },
+                                "tricks" : { "S" : "Anything is Possible!, Spins, Cartwheels, Loops, Back Loops, Blunts, Helix, McNasty, Phonix Monkey" },
+                                "features" : { "S" : "easy access, good eddy service" },
+                                "location" : { "M" : {
+                                    "state" : { "S" : "IDAHO" },
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.70945756623944" },
+                                        "lng" : { "N" : "-116.96675131875466" }
+                                    }}
+                                }},
+                                "access" : { "M" : {
+                                    "state" : { "S" : "IDAHO" },
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.71044223021127" },
+                                        "lng" : { "N" : "-116.96900709423221" }
+                                    }}
+                                }},
+                                "flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "3200.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "7500.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "optimum-flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "4500.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "6000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "flow-info" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "3200.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "3800.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "description" : { "S" : "Low End-Shallow Hole" }
+                                        }}
+                                    }},
+                                    { "M" : {
+                                        "order" : { "N" : "2" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "3800.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "4800.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "Prime" }
+                                    }},
+                                    { "M" : {
+                                        "order" : { "N" : "3" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "4800.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "5200.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "Upper End- Small Breaking Wave" }
+                                    }}
+                                ]},
+                                "links" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "label" : { "S" : "Gage" },
+                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
+                                    }},
+                                    { "M" : {
+                                        "order" : { "N" : "2" },
+                                        "label" : { "S" : "Avista" },
+                                        "url" : { "S" : "https://www.myavista.com/about-us/celebrate-our-rivers/water-flow-information"}
+                                    }}
+                                ]},
+                                "images" : { "L" : []},
+                                "videos" : { "L" : []},
+                                "history" : { "L" : []}
+                                }
+                            }
+                        ]},
+                        "location" : { "M" : {
+                            "state" : { "S" : "IDAHO" },
+                            "coordinates" : { "M" : {
+                                "espg" : { "S" : "4326" },
+                                "lat" : { "N" : "47.70945756623944" },
+                                "lng" : { "N" : "-116.96675131875466" }
+                            }}
+                        }}
+                    }}
+                }
+        }},
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#2" },
+                    "sk" : { "S" : "SURFSPOT#3" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
+                        "id" : { "N" : "3" },
+                        "name" : { "S" : "Corbin" },
+                        "surf-spots" : { "L" : [
+                            { "M" : {
+                                "id" : { "N" : "3" },
+                                "name" : { "S" : "Corbin" },
+                                "description" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "heading" : { "S" : "" },
+                                        "paragraph" : { "S" : "Corbin Wave is a large, fast, dynamic, and steep wave that provides some exciting rides. It is definitely a favorite that locals look forward to every spring when the snow melt provides the needed flows. Although the eddy will service you right onto the wave, it and the swirly eddy fence downstream of the wave can intimidate some new boaters. Eddy service is a large eddy on river right, and if this eddy is missed there are multiple other river right eddies just around the corner." }
+                                    }}
+                                ]},
+                                "difficulty" : { "S" : "MEDIUM" },
+                                "tricks" : { "S" : "spins, clean spins, blunts & back blunts, air screws, pan ams, helix, pistol flips" },
+                                "features" : { "S" : "easy access, good eddy service, big whirlpools, watch out for wood in the flow!" },
+                                "location" : { "M" : {
+                                    "state" : { "S" : "IDAHO"},
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.704226350842866" },
+                                        "lng" : { "N" : "-116.98678090447382" }
+                                    }}
+                                }},
+                                "access" : { "M" : {
+                                    "state" : { "S" : "IDAHO" },
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.704406941391035" },
+                                        "lng" : { "N" : "-116.98791081116408" }
+                                    }}
+                                }},
+                                "flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "17000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "24000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "optimum-flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "19500.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "22000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "flow-info" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "17000.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "19500.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "The wave is still forming and will feel slightly less retentive." }
+                                    }},
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "22000.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "24000.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "The wave starts to periodically surge green and the surfer right shoulder starts to lose shape." }
+                                    }}
+                                ]},
+                                "links" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "label" : { "S" : "Gage" },
+                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
+                                    }}
+                                ]},
+                                "images" : { "L" : []},
+                                "videos" : { "L" : []},
+                                "history" : { "L" : []}
+                            }}
+                        ]},
+                        "location" : { "M" : {
+                            "state" : { "S" : "IDAHO" },
+                            "coordinates" : { "M" : {
+                                "espg" : { "S" : "4326" },
+                                "lat" : { "N" : "47.704226350842866" },
+                                "lng" : { "N" : "-116.98678090447382" }
+                            }}
+                        }}
+                    }}
+                }
+        }},
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#2" },
+                    "sk" : { "S" : "SURFSPOT#4" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
+                        "id" : { "N" : "4" },
+                        "name" : { "S" : "Dead Dog" },
+                        "surf-spots" : { "L" : [
+                            { "M" : {
+                                "id" : { "N" : "4" },
+                                "name" : { "S" : "Dead Dog" },
+                                "description" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "heading" : { "S" : "" },
+                                        "paragraph" : { "S" : "This hole has a tendency to get very retentive in the low 20,000's. Locals tend to shift up to Corbin wave for prime flows in this range." }
+                                    }}
+                                ]},
+                                "difficulty" : { "S" : "MEDIUM" },
+                                "tricks" : { "S" : "spins, loops, cart wheels" },
+                                "features" : { "S" : "easy access, good eddy service" },
+                                "location" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON"},
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.69866969949513" },
+                                        "lng" : { "N" : "-117.04397406915203" }
+                                    }}
+                                }},
+                                "access" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON" },
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.69977737067392" },
+                                        "lng" : { "N" : "-117.04339913207552" }
+                                    }}
+                                }},
+                                "flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "11000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "45000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "optimum-flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "15000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "19000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "flow-info" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "11000.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "13000.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "Tiny and shallow" }
+                                    }},
+                                    { "M" : {
+                                        "order" : { "N" : "2" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "20000.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "45000.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "Surfer's left becomes very sticky" }
+                                    }}
+                                ]},
+                                "links" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "label" : { "S" : "Gage" },
+                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
+                                    }}
+                                ]},
+                                "images" : { "L" : []},
+                                "videos" : { "L" : []},
+                                "history" : { "L" : []}
+                            }}
+                        ]},
+                        "location" : { "M" : {
+                            "state" : { "S" : "WASHINGTON"},
+                            "coordinates" : { "M" : {
+                                "espg" : { "S" : "4326" },
+                                "lat" : { "N" : "47.69866969949513" },
+                                "lng" : { "N" : "-117.04397406915203" }
+                            }}
+                        }}
+                    }}
+                }
+        }},
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#2" },
+                    "sk" : { "S" : "SURFSPOT#5" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
+                        "id" : { "N" : "5" },
+                        "name" : { "S" : "Sullivan" },
+                        "surf-spots" : { "L" : [
+                            { "M" : {
+                                "id" : { "N" : "5" },
+                                "name" : { "S" : "Sullivan" },
+                                "description" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "heading" : { "S" : "" },
+                                        "paragraph" : { "S" : "Uniform hole that when it is at the prime flow, any trick becomes possible. Below the prime flow range the holes gets smaller and shallower. This makes it slightly harder to set up and initiation for vertical moves should be further back in the pile to avoid hitting the rock. Above the prime flow range the hole starts to become more of a breaking wave that is great for spins and small blunts." }
+                                    }}
+                                ]},
+                                "difficulty" : { "S" : "EASY" },
+                                "tricks" : { "S" : "Spins, Loops, Cartwheels, Lunar Orbit (@ prime flows), McNasty (@ prime flows), Phonix Monkey (@ prime flows), Side Surf, Carving, Small Blunts, Back Blunts" },
+                                "features" : { "S" : "easy access, great eddy service with a very large eddy on river right" },
+                                "location" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON"},
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.67375333360827" },
+                                        "lng" : { "N" : "-117.18142637498856" }
+                                    }}
+                                }},
+                                "access" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON" },
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.671518155711695" },
+                                        "lng" : { "N" : "-117.17998552452912" }
+                                    }}
+                                }},
+                                "flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "2800.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "3400.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "optimum-flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "2800.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "3100.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "flow-info" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "2600.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "2800.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "Low End- Shallow Hole" }
+                                    }},
+                                    { "M" : {
+                                        "order" : { "N" : "2" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "2800.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "3100.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "Prime Flow" }
+                                    }},
+                                    { "M" : {
+                                        "order" : { "N" : "3" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "3100.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "3400.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "Upper End- Small Breaking Wave" }
+                                    }}
+                                ]},
+                                "links" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "label" : { "S" : "Gage" },
+                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
+                                    }}
+                                ]},
+                                "images" : { "L" : []},
+                                "videos" : { "L" : []},
+                                "history" : { "L" : []}
+                            }},
+                            { "M" : {
+                                "id" : { "N" : "6" },
+                                "name" : { "S" : "Duplex" },
+                                "description" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "heading" : { "S" : "" },
+                                        "paragraph" : { "S" : "Top wave (far river right) is better at the lower range, bottom wave better at higher range" }
+                                    }}
+                                ]},
+                                "difficulty" : { "S" : "EASY" },
+                                "tricks" : { "S" : "spins, loops, cart wheels" },
+                                "features" : { "S" : "easy access, good eddy service" },
+                                "location" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON"},
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.673749394544146" },
+                                        "lng" : { "N" : "-117.18157701091727" }
+                                    }}
+                                }},
+                                "access" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON" },
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.671518155711695" },
+                                        "lng" : { "N" : "-117.17998552452912" }
+                                    }}
+                                }},
+                                "flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "6000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "9000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "optimum-flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "6000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "8000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "flow-info" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "6000.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "7500.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "Top wave is better" }
+                                    }},
+                                    { "M" : {
+                                        "order" : { "N" : "2" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "7500.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "8000.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "Bottom wave is better" }
+                                    }}
+                                ]},
+                                "links" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "label" : { "S" : "Gage" },
+                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
+                                    }}
+                                ]},
+                                "images" : { "L" : []},
+                                "videos" : { "L" : []},
+                                "history" : { "L" : []}
+                            }},
+                            { "M" : {
+                                "id" : { "N" : "7" },
+                                "name" : { "S" : "Mini Climax" },
+                                "description" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "heading" : { "S" : "" },
+                                        "paragraph" : { "S" : "At prime flow Mini Climax is a fast and dynamic breaking wave with good eddy service on river left. At high flow it becomes a steep green wave that provides for some long fun and carving front surfs if you have a long boat." }
+                                    }}
+                                ]},
+                                "difficulty" : { "S" : "EASY" },
+                                "tricks" : { "S" : "spins, blunts, back blunts, cartwheels (with proper timing)" },
+                                "features" : { "S" : "easy access, good eddy service on river left" },
+                                "location" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON"},
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.6763419421849" },
+                                        "lng" : { "N" : "-117.18028651416395" }
+                                    }}
+                                }},
+                                "access" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON" },
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.671518155711695" },
+                                        "lng" : { "N" : "-117.17998552452912" }
+                                    }}
+                                }},
+                                "flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "5700.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "9000.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "optimum-flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "5700.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "7500.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "flow-info" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "5700.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "7500.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "Prime Flow Range" }
+                                    }},
+                                    { "M" : {
+                                        "order" : { "N" : "2" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "7500.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "9000.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "Steep Green Wave (Long Boat)" }
+                                    }}
+                                ]},
+                                "links" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "label" : { "S" : "Gage" },
+                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
+                                    }}
+                                ]},
+                                "images" : { "L" : []},
+                                "videos" : { "L" : []},
+                                "history" : { "L" : []}
+                            }}
+                        ]},
+                        "location" : { "M" : {
+                            "state" : { "S" : "WASHINGTON"},
+                            "coordinates" : { "M" : {
+                                "espg" : { "S" : "4326" },
+                                "lat" : { "N" : "47.6746148901124" },
+                                "lng" : { "N" : "-117.1810966333560" }
+                            }}
+                        }}
+                    }}
+                }
+        }},
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#2" },
+                    "sk" : { "S" : "SURFSPOT#6" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
+                        "id" : { "N" : "5" },
+                        "name" : { "S" : "Zoo" },
+                        "surf-spots" : { "L" : [
+                            { "M" : {
+                                "id" : { "N" : "8" },
+                                "name" : { "S" : "Zoo" },
+                                "description" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "heading" : { "S" : "" },
+                                        "paragraph" : { "S" : "Zoo Wave is a small dynamic wave that is a touch more wave hole on surfer left, has a breaking wave shoulder on surfer right, and opens up the potential for hole or wave moves depending on where you set up. This dynamic wave will keep you on your toes carving from shoulder to shoulder to ride the ever-changing sweet spot. Above the prime flow range the wave and hole start to become a breaking wave that is great for some fun soul surfing with long front surfs and spins. To access the wave park at the Mirabeau point Trail head for the Centennial Trail and walk-up stream about half a mile. Turn down to the river just before Mile Marker #10 (painted on the trail and a mile post on the side of the trail). The wave sits just left of center and should be obvious." }
+                                    }}
+                                ]},
+                                "difficulty" : { "S" : "EASY" },
+                                "tricks" : { "S" : "spins, blunts & back blunts, cartwheels, loops (occasionally)" },
+                                "features" : { "S" : "good eddy service, green wave" },
+                                "location" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON"},
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.67895380341396" },
+                                        "lng" : { "N" : "-117.21030008548784" }
+                                    }}
+                                }},
+                                "access" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON" },
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.68172980646827" },
+                                        "lng" : { "N" : "-117.22305133785378" }
+                                    }}
+                                }},
+                                "flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "2200.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "3500.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "optimum-flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "2200.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "2800.0" },
+                                        "unit" : { "S" : "CFS" }
+                                    }}
+                                }},
+                                "flow-info" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "2200.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "2800.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "Prime Flow" }
+                                    }},
+                                    { "M" : {
+                                        "order" : { "N" : "2" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "2800.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "3500.0" },
+                                                "unit" : { "S" : "CFS" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "Upper End-A little more flat but still breaking and good for a long boat surf." }
+                                    }}
+                                ]},
+                                "links" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "label" : { "S" : "Gage" },
+                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000"}
+                                    }}
+                                ]},
+                                "images" : { "L" : []},
+                                "videos" : { "L" : []},
+                                "history" : { "L" : []}
+                            }}
+                        ]},
+                        "location" : { "M" : {
+                            "state" : { "S" : "WASHINGTON"},
+                            "coordinates" : { "M" : {
+                                "espg" : { "S" : "4326" },
+                                "lat" : { "N" : "47.67895380341396" },
+                                "lng" : { "N" : "-117.21030008548784" }
+                            }}
+                        }}
+                    }}
+                }
+        }},
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#3" },
+                    "sk" : { "S" : "FLOWSOURCE" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
+                            "id" : { "N" : "3" },
+                            "flow" : { "M" : {
+                                    "value" : { "S" : "" },
+                                    "unit" : { "S" : "FT" }
+                                }
+                            },
+                            "gages" : { "L" : [
+                                { "M" : {
+                                    "id" : { "S" : "USGS-12424000" },
+                                    "name" : { "S" : "Hangman Creek at Spokane, WA" },
+                                    "values" : { "L" : [] },
+                                    "history" : { "L" : [] },
+                                    "location" : { "M" : {
+                                        "state" : { "S" : "WASHINGTON"},
+                                        "coordinates" : { "M" : {
+                                            "espg" : { "S" : "4326" },
+                                            "lat" : { "N" : "47.6526688" },
+                                            "lng" : { "N" : "-117.449658" }
+                                        }}
+                                    }},
+                                    "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12424000" }
+                                }}
+                            ]},
+                            "gage-expression" : { "S" : "[USGS-12424000]" }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#3" },
+                    "sk" : { "S" : "REGION#1" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
+                        "id" : { "N" : "1" },
+                        "name" : { "S" : "Spokane/Coeur d'Alene Area" },
+                        "boundary" : { "L" : []}
+                    }}
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#3" },
+                    "sk" : { "S" : "SURFSPOT#7" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
+                        "id" : { "N" : "6" },
+                        "name" : { "S" : "Flower Power" },
+                        "surf-spots" : { "L" : [
+                            { "M" : {
+                                "id" : { "N" : "9" },
+                                "name" : { "S" : "Flower Power" },
+                                "description" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "heading" : { "S" : "" },
+                                        "paragraph" : { "S" : "Constricted wave, with lower water clarity than the other features in the area." }
+                                    }}
+                                ]},
+                                "difficulty" : { "S" : "EASY" },
+                                "tricks" : { "S" : "shoulder to shoulder carving, spins, blunts, back blunts, Pan Am (if you are lucky)" },
+                                "features" : { "S" : "easy access, good eddy service" },
+                                "location" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON"},
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.641006142260075" },
+                                        "lng" : { "N" : "-117.44431753747203" }
+                                    }}
+                                }},
+                                "access" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON" },
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.64082975825719" },
+                                        "lng" : { "N" : "-117.4429515766728" }
+                                    }}
+                                }},
+                                "flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "4.4" },
+                                        "unit" : { "S" : "FT" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "5.8" },
+                                        "unit" : { "S" : "FT" }
+                                    }}
+                                }},
+                                "optimum-flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "4.4" },
+                                        "unit" : { "S" : "FT" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "4.7" },
+                                        "unit" : { "S" : "FT" }
+                                    }}
+                                }},
+                                "flow-info" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "4.4" },
+                                                "unit" : { "S" : "FT" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "4.7" },
+                                                "unit" : { "S" : "FT" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "The shoulders of the wave are surgy and make it difficult to time the various tricks." }
+                                    }},
+                                    { "M" : {
+                                        "order" : { "N" : "2" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "4.7" },
+                                                "unit" : { "S" : "FT" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "5.8" },
+                                                "unit" : { "S" : "FT" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "The center pile starts to become smaller and less retentive. Forcing the paddler to be on their game in order to prevent washing off." }
+                                    }}
+                                ]},
+                                "links" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "label" : { "S" : "Gage" },
+                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12424000"}
+                                    }}
+                                ]},
+                                "images" : { "L" : []},
+                                "videos" : { "L" : []},
+                                "history" : { "L" : []}
+                            }}
+                        ]},
+                        "location" : { "M" : {
+                            "state" : { "S" : "WASHINGTON"},
+                            "coordinates" : { "M" : {
+                                "espg" : { "S" : "4326" },
+                                "lat" : { "N" : "47.641006142260075" },
+                                "lng" : { "N" : "-117.44431753747203" }
+                            }}
+                        }}
+                    }}
+                }
+        }},
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "FLOWSOURCE#3" },
+                    "sk" : { "S" : "SURFSPOT#8" },
+                    "region" : { "S" : "REGION#SPOKANE-CDA" },
+                    "data" : { "M" : {
+                        "id" : { "N" : "7" },
+                        "name" : { "S" : "Dirty Mother" },
+                        "surf-spots" : { "L" : [
+                            { "M" : {
+                                "id" : { "N" : "10" },
+                                "name" : { "S" : "Dirty Mother" },
+                                "description" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "heading" : { "S" : "" },
+                                        "paragraph" : { "S" : "Just a short drive from Spokane, the Dirty Mother Wave is a river wide wave in a scenic basalt canyon setting on Latah Creek that only comes in for a short period during spring runoff and heavy rains. It is a river wide green wave that rarely breaks but is steep enough for an enjoyable soul surf. The surfer left shoulder provides for some good clean spins and small blunts. Long boats tend to do better on this wave and there is enough room to spin them. At the right flow one can get some good long rides in a short play boat. Eddy service is river left and it is a very large eddy. Make sure you are ready for some solid forward strokes to get out onto the steeper part of the wave in river center. Parking can be an issue. Park just upstream of the wave in a wide pull out next the guard rail. The land next to the parking area and the wave is private property, but the landowners have given permission for us to cross it to access the wave. When using this spot as a park and play feature, please try to reduce the impact to the land and make sure that parking does not create issue for traffic passing by on Valley Chapel Rd." }
+                                    }}
+                                ]},
+                                "difficulty" : { "S" : "EASY" },
+                                "tricks" : { "S" : "long front & back soul surfs, spins (left shoulder), small blunts (left shoulder)" },
+                                "features" : { "S" : "wide green wave, shallow feature" },
+                                "location" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON"},
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.503071381835944" },
+                                        "lng" : { "N" : "-117.34330761645792" }
+                                    }}
+                                }},
+                                "access" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON" },
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.50306594593574" },
+                                        "lng" : { "N" : "-117.34390574906153" }
+                                    }}
+                                }},
+                                "flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "5.5" },
+                                        "unit" : { "S" : "FT" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "7.0" },
+                                        "unit" : { "S" : "FT" }
+                                    }}
+                                }},
+                                "optimum-flow-range" : { "M" : {
+                                    "min-flow" : { "M" : {
+                                        "value" : { "N" : "6.0" },
+                                        "unit" : { "S" : "FT" }
+                                    }},
+                                    "max-flow" : { "M" : {
+                                        "value" : { "N" : "7.0" },
+                                        "unit" : { "S" : "FT" }
+                                    }}
+                                }},
+                                "flow-info" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "5.5" },
+                                                "unit" : { "S" : "FT" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "6.0" },
+                                                "unit" : { "S" : "FT" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "The wave gets smaller and extra effort is needed to load the wave." }
+                                    }},
+                                    { "M" : {
+                                        "order" : { "N" : "2" },
+                                        "flow-range" : { "M" : {
+                                            "min-flow" : { "M" : {
+                                                "value" : { "N" : "6.0" },
+                                                "unit" : { "S" : "FT" }
+                                            }},
+                                            "max-flow" : { "M" : {
+                                                "value" : { "N" : "7.0" },
+                                                "unit" : { "S" : "FT" }
+                                            }}
+                                        }},
+                                        "description" : { "S" : "The wave remains green but is steep and fast, and much easier to load from the eddy." }
+                                    }}
+                                ]},
+                                "links" : { "L" : [
+                                    { "M" : {
+                                        "order" : { "N" : "1" },
+                                        "label" : { "S" : "Gage" },
+                                        "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12424000"}
+                                    }}
+                                ]},
+                                "images" : { "L" : []},
+                                "videos" : { "L" : []},
+                                "history" : { "L" : []}
+                            }}
+                        ]},
+                        "location" : { "M" : {
+                            "state" : { "S" : "WASHINGTON"},
+                            "coordinates" : { "M" : {
+                                "espg" : { "S" : "4326" },
+                                "lat" : { "N" : "47.503071381835944" },
+                                "lng" : { "N" : "-117.34330761645792" }
+                            }}
+                        }}
+                    }}
+                }
+        }}
+    ]
 }
