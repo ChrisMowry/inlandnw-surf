@@ -1,2 +1,8 @@
-package com.inlandnwsurf.rest.model.levels;public enum Unit {
+package com.inlandnwsurf.rest.model.levels;
+
+public enum Unit {
+    CFS,
+    FT,
+    CMS,
+    M
 }

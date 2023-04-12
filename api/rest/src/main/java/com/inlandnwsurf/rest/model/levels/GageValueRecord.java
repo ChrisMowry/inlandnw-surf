@@ -1,8 +1,8 @@
 package com.inlandnwsurf.rest.model.levels;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 public class GageValueRecord {
     private GageValue value;
-    private LocalDateTime recordTime;
+    private Instant recordTime;
 }

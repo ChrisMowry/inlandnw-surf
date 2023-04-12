@@ -4,13 +4,13 @@ import com.inlandnwsurf.rest.model.management.ManagedItem;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 public class FlowSource extends ManagedItem {
     private String id;
     private Flow flow;
-    private ArrayList<Gage> gages;
+    private List<Gage> gages;
     private String gageExpression;
 }

@@ -2,14 +2,14 @@ package com.inlandnwsurf.rest.model.management;
 
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 @Data
 public class ManagedItem {
 
-    private User createdBy;
-    private LocalDateTime createdOn;
-    private User modifiedBy;
-    private LocalDateTime modifiedOn;
+    private String createdBy;
+    private Instant createdOn;
+    private String modifiedBy;
+    private Instant modifiedOn;
 
     public ManagedItem(){
         this.createdBy = null;
@@ -18,15 +18,15 @@ public class ManagedItem {
         this.modifiedOn = null;
     }
 
-    public ManagedItem(User user){
+    public ManagedItem(String user){
         this.createdBy = user;
-        this.createdOn = LocalDateTime.now();
+        this.createdOn = Instant.now();
         this.modifiedBy = user;
-        this.modifiedOn = LocalDateTime.now();
+        this.modifiedOn = Instant.now();
     }
 
-    public void modified(User user){
+    public void modified(String user){
         this.modifiedBy = user;
-        this.modifiedOn = LocalDateTime.now();
+        this.modifiedOn = Instant.now();
     }
 }

@@ -1,61 +1,16 @@
-
 spring:
+  application:
+    name: ${APP_NAME:InlandNW-Surf-Service}
   profiles:
     active: local
+logging:
+  level:
+    root: ${LOG_LEVEL:INFO}
 server:
   port: 8080
-
----
-
-spring:
-  profiles: local
-  amazon:
-    dynamodb:
-      endpoint: http://localhost:8000/
-    aws:
-      accesskey: none
-      secretkey: none
-      region: us-west-2
-      
-server:
-  error:
-    include-message: always
-    include-binding-errors: always
-    include-stacktrace: on_trace_param
-    include-exception: true
-      
----
-
-spring:
-  profiles: dev
-  amazon:
-    dynamodb:
-      endpoint: http://localhost:8000/
-    aws:
-      accesskey: none
-      secretkey: none
-      region: us-west-2
-server:
-  error:
-    include-message: always
-    include-binding-errors: always
-    include-stacktrace: on_trace_param
-    include-exception: true
----
-
-spring:
-  profiles: prod
-  amazon:
-    dynamodb:
-      endpoint: http://localhost:8000/
-    aws:
-      accesskey: none
-      secretkey: none
-      region: us-west-2
-server:
-  error:
-    include-message: always
-    include-binding-errors: always
-    include-stacktrace: never
-    include-exception: true
-      
+management:
+  server:
+    port: 8081
+springdoc:
+  swagger-ui:
+    path: /swagger

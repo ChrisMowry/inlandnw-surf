@@ -3,49 +3,16 @@
         {
             "PutRequest" : {
                 "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#1" },
-                    "sk" : { "S" : "FLOWSOURCE" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
-                            "id" : { "N" : "1" },
-                            "flow" : { "M" : {
-                                    "value" : { "S" : "" },
-                                    "unit" : { "S" : "CFS" }
-                                }
-                            },
-                            "gages" : { "L" : [
-                                { "M" : {
-                                    "id" : { "S" : "USGS-12422500" },
-                                    "name" : { "S" : "Spokane River at Spokane, WA" },
-                                    "values" : { "L" : [] },
-                                    "history" : { "L" : [] },
-                                    "location" : { "M" : {
-                                        "state" : { "S" : "WASHINGTON" },
-                                        "coordinates" : { "M" : {
-                                            "espg" : { "S" : "4326" },
-                                            "lat" : { "N" : "47.6593354" },
-                                            "lng" : { "N" : "-117.4491029" }
-                                        }}
-                                    }},
-                                    "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12422500" }
-                                }}
-                            ]},
-                            "gage-expression" : { "S" : "[USGS-12422500]" }
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "PutRequest" : {
-                "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#1" },
+                    "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "REGION#1" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
-                        "id" : { "N" : "1" },
+                    "type" : { "S" : "REGION" },
+                    "region" : { "M" : {
                         "name" : { "S" : "Spokane/Coeur d'Alene Area" },
-                        "boundary" : { "L" : []}
+                        "boundary" : { "L" : []},
+                        "created-by" : { "S" : "Chris Mowry" },
+                        "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                        "modified-by" : { "S" : "Chris Mowry" },
+                        "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                     }}
                 }
             }
@@ -53,10 +20,51 @@
         {
             "PutRequest" : {
                 "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#1" },
+                    "pk" : { "S" : "REGION#SPOKANE-CDA" },
+                    "sk" : { "S" : "FLOWSOURCE#1" },
+                    "type" : { "S" : "FLOWSOURCE" },
+                    "flow-source-id" : { "S" : "FLOWSOURCE#1" },
+                    "flow-source" : { "M" : {
+                        "id" : { "N" : "1" },
+                        "flow" : { "M" : {
+                                "value" : { "N" : "0" },
+                                "unit" : { "S" : "CFS" }
+                            }
+                        },
+                        "gages" : { "L" : [
+                            { "M" : {
+                                "id" : { "S" : "USGS-12422500" },
+                                "name" : { "S" : "Spokane River at Spokane, WA" },
+                                "values" : { "L" : [] },
+                                "history" : { "L" : [] },
+                                "location" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON" },
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.6593354" },
+                                        "lng" : { "N" : "-117.4491029" }
+                                    }}
+                                }},
+                                "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12422500" }
+                            }}
+                        ]},
+                        "gage-expression" : { "S" : "[USGS-12422500]" },
+                        "created-by" : { "S" : "Chris Mowry" },
+                        "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                        "modified-by" : { "S" : "Chris Mowry" },
+                        "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
+                    }}
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#1" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
+                    "type" : { "S" : "SURFSPOT" },
+                    "flow-source-id" : { "S" : "FLOWSOURCE#1" },
+                    "surf-spot" : { "M" : {
                         "id" : { "N" : "1" },
                         "name" : { "S" : "Cyclops" },
                         "surf-spots" : { "L" : [
@@ -119,7 +127,11 @@
                                 ]},
                                 "images" : { "L" : []},
                                 "videos" : { "L" : []},
-                                "history" : { "L" : []}
+                                "history" : { "L" : []},
+                                "created-by" : { "S" : "Chris Mowry" },
+                                "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                                "modified-by" : { "S" : "Chris Mowry" },
+                                "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                             }
                         }]},
                         "location" : { "M" : {
@@ -129,56 +141,11 @@
                                 "lat" : { "N" : "47.71085203331206" },
                                 "lng" : { "N" : "-117.50083475761053" }
                             }}
-                        }}
-                    }}
-                }
-        }},
-        {
-            "PutRequest" : {
-                "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#2" },
-                    "sk" : { "S" : "FLOWSOURCE" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
-                            "id" : { "N" : "2" },
-                            "flow" : { "M" : {
-                                    "value" : { "S" : "" },
-                                    "unit" : { "S" : "CFS" }
-                                }
-                            },
-                            "gages" : { "L" : [
-                                { "M" : {
-                                    "id" : { "S" : "USGS-12419000" },
-                                    "name" : { "S" : "Spokane River near Post Falls, ID" },
-                                    "values" : { "L" : [] },
-                                    "history" : { "L" : [] },
-                                    "location" : { "M" : {
-                                        "state" : { "S" : "IDAHO"},
-                                        "coordinates" : { "M" : {
-                                            "espg" : { "S" : "4326" },
-                                            "lat" : { "N" : "47.70295737" },
-                                            "lng" : { "N" : "-116.9779747" }
-                                        }}
-                                    }},
-                                    "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000" }
-                                }}
-                            ]},
-                            "gage-expression" : { "S" : "[USGS-12419000]" }
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "PutRequest" : {
-                "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#2" },
-                    "sk" : { "S" : "REGION#1" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
-                        "id" : { "N" : "1" },
-                        "name" : { "S" : "Spokane/Coeur d'Alene Area" },
-                        "boundary" : { "L" : []}
+                        }},
+                        "created-by" : { "S" : "Chris Mowry" },
+                        "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                        "modified-by" : { "S" : "Chris Mowry" },
+                        "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                     }}
                 }
             }
@@ -186,10 +153,51 @@
         {
             "PutRequest" : {
                 "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#2" },
+                    "pk" : { "S" : "REGION#SPOKANE-CDA" },
+                    "sk" : { "S" : "FLOWSOURCE#2" },
+                    "type" : { "S" : "FLOWSOURCE" },
+                    "flow-source-id" : { "S" : "FLOWSOURCE#2" },
+                    "flow-source" : { "M" : {
+                        "id" : { "N" : "2" },
+                        "flow" : { "M" : {
+                                "value" : { "N" : "0" },
+                                "unit" : { "S" : "CFS" }
+                            }
+                        },
+                        "gages" : { "L" : [
+                            { "M" : {
+                                "id" : { "S" : "USGS-12419000" },
+                                "name" : { "S" : "Spokane River near Post Falls, ID" },
+                                "values" : { "L" : [] },
+                                "history" : { "L" : [] },
+                                "location" : { "M" : {
+                                    "state" : { "S" : "IDAHO"},
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.70295737" },
+                                        "lng" : { "N" : "-116.9779747" }
+                                    }}
+                                }},
+                                "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12419000" }
+                            }}
+                        ]},
+                        "gage-expression" : { "S" : "[USGS-12419000]" },
+                        "created-by" : { "S" : "Chris Mowry" },
+                        "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                        "modified-by" : { "S" : "Chris Mowry" },
+                        "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
+                    }}
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#2" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
+                    "type" : { "S" : "SURFSPOT" },
+                    "flow-source-id" : { "S" : "FLOWSOURCE#2" },
+                    "surf-spot" : { "M" : {
                         "id" : { "N" : "2" },
                         "name" : { "S" : "Trailer Park" },
                         "surf-spots" : { "L" : [
@@ -300,7 +308,11 @@
                                 ]},
                                 "images" : { "L" : []},
                                 "videos" : { "L" : []},
-                                "history" : { "L" : []}
+                                "history" : { "L" : []},
+                                "created-by" : { "S" : "Chris Mowry" },
+                                "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                                "modified-by" : { "S" : "Chris Mowry" },
+                                "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                                 }
                             }
                         ]},
@@ -311,17 +323,23 @@
                                 "lat" : { "N" : "47.70945756623944" },
                                 "lng" : { "N" : "-116.96675131875466" }
                             }}
-                        }}
+                        }},
+                        "created-by" : { "S" : "Chris Mowry" },
+                        "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                        "modified-by" : { "S" : "Chris Mowry" },
+                        "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                     }}
                 }
-        }},
+            }
+        },
         {
             "PutRequest" : {
                 "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#2" },
+                    "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#3" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
+                    "type" : { "S" : "SURFSPOT" },
+                    "flow-source-id" : { "S" : "FLOWSOURCE#2" },
+                    "surf-spot" : { "M" : {
                         "id" : { "N" : "3" },
                         "name" : { "S" : "Corbin" },
                         "surf-spots" : { "L" : [
@@ -413,7 +431,11 @@
                                 ]},
                                 "images" : { "L" : []},
                                 "videos" : { "L" : []},
-                                "history" : { "L" : []}
+                                "history" : { "L" : []},
+                                "created-by" : { "S" : "Chris Mowry" },
+                                "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                                "modified-by" : { "S" : "Chris Mowry" },
+                                "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                             }}
                         ]},
                         "location" : { "M" : {
@@ -423,17 +445,23 @@
                                 "lat" : { "N" : "47.704226350842866" },
                                 "lng" : { "N" : "-116.98678090447382" }
                             }}
-                        }}
+                        }},
+                        "created-by" : { "S" : "Chris Mowry" },
+                        "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                        "modified-by" : { "S" : "Chris Mowry" },
+                        "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                     }}
                 }
-        }},
+            }
+        },
         {
             "PutRequest" : {
                 "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#2" },
+                    "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#4" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
+                    "type" : { "S" : "SURFSPOT" },
+                    "flow-source-id" : { "S" : "FLOWSOURCE#2" },
+                    "surf-spot" : { "M" : {
                         "id" : { "N" : "4" },
                         "name" : { "S" : "Dead Dog" },
                         "surf-spots" : { "L" : [
@@ -525,7 +553,11 @@
                                 ]},
                                 "images" : { "L" : []},
                                 "videos" : { "L" : []},
-                                "history" : { "L" : []}
+                                "history" : { "L" : []},
+                                "created-by" : { "S" : "Chris Mowry" },
+                                "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                                "modified-by" : { "S" : "Chris Mowry" },
+                                "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                             }}
                         ]},
                         "location" : { "M" : {
@@ -535,17 +567,23 @@
                                 "lat" : { "N" : "47.69866969949513" },
                                 "lng" : { "N" : "-117.04397406915203" }
                             }}
-                        }}
+                        }},
+                        "created-by" : { "S" : "Chris Mowry" },
+                        "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                        "modified-by" : { "S" : "Chris Mowry" },
+                        "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                     }}
                 }
-        }},
+            }
+        },
         {
             "PutRequest" : {
                 "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#2" },
+                    "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#5" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
+                    "type" : { "S" : "SURFSPOT" },
+                    "flow-source-id" : { "S" : "FLOWSOURCE#2" },
+                    "surf-spot" : { "M" : {
                         "id" : { "N" : "5" },
                         "name" : { "S" : "Sullivan" },
                         "surf-spots" : { "L" : [
@@ -651,7 +689,11 @@
                                 ]},
                                 "images" : { "L" : []},
                                 "videos" : { "L" : []},
-                                "history" : { "L" : []}
+                                "history" : { "L" : []},
+                                "created-by" : { "S" : "Chris Mowry" },
+                                "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                                "modified-by" : { "S" : "Chris Mowry" },
+                                "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                             }},
                             { "M" : {
                                 "id" : { "N" : "6" },
@@ -741,7 +783,11 @@
                                 ]},
                                 "images" : { "L" : []},
                                 "videos" : { "L" : []},
-                                "history" : { "L" : []}
+                                "history" : { "L" : []},
+                                "created-by" : { "S" : "Chris Mowry" },
+                                "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                                "modified-by" : { "S" : "Chris Mowry" },
+                                "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                             }},
                             { "M" : {
                                 "id" : { "N" : "7" },
@@ -831,7 +877,11 @@
                                 ]},
                                 "images" : { "L" : []},
                                 "videos" : { "L" : []},
-                                "history" : { "L" : []}
+                                "history" : { "L" : []},
+                                "created-by" : { "S" : "Chris Mowry" },
+                                "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                                "modified-by" : { "S" : "Chris Mowry" },
+                                "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                             }}
                         ]},
                         "location" : { "M" : {
@@ -841,17 +891,23 @@
                                 "lat" : { "N" : "47.6746148901124" },
                                 "lng" : { "N" : "-117.1810966333560" }
                             }}
-                        }}
+                        }},
+                        "created-by" : { "S" : "Chris Mowry" },
+                        "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                        "modified-by" : { "S" : "Chris Mowry" },
+                        "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                     }}
                 }
-        }},
+            }
+        },
         {
             "PutRequest" : {
                 "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#2" },
+                    "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#6" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
+                    "type" : { "S" : "SURFSPOT" },
+                    "flow-source-id" : { "S" : "FLOWSOURCE#2" },
+                    "surf-spot" : { "M" : {
                         "id" : { "N" : "5" },
                         "name" : { "S" : "Zoo" },
                         "surf-spots" : { "L" : [
@@ -943,7 +999,11 @@
                                 ]},
                                 "images" : { "L" : []},
                                 "videos" : { "L" : []},
-                                "history" : { "L" : []}
+                                "history" : { "L" : []},
+                                "created-by" : { "S" : "Chris Mowry" },
+                                "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                                "modified-by" : { "S" : "Chris Mowry" },
+                                "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                             }}
                         ]},
                         "location" : { "M" : {
@@ -953,56 +1013,11 @@
                                 "lat" : { "N" : "47.67895380341396" },
                                 "lng" : { "N" : "-117.21030008548784" }
                             }}
-                        }}
-                    }}
-                }
-        }},
-        {
-            "PutRequest" : {
-                "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#3" },
-                    "sk" : { "S" : "FLOWSOURCE" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
-                            "id" : { "N" : "3" },
-                            "flow" : { "M" : {
-                                    "value" : { "S" : "" },
-                                    "unit" : { "S" : "FT" }
-                                }
-                            },
-                            "gages" : { "L" : [
-                                { "M" : {
-                                    "id" : { "S" : "USGS-12424000" },
-                                    "name" : { "S" : "Hangman Creek at Spokane, WA" },
-                                    "values" : { "L" : [] },
-                                    "history" : { "L" : [] },
-                                    "location" : { "M" : {
-                                        "state" : { "S" : "WASHINGTON"},
-                                        "coordinates" : { "M" : {
-                                            "espg" : { "S" : "4326" },
-                                            "lat" : { "N" : "47.6526688" },
-                                            "lng" : { "N" : "-117.449658" }
-                                        }}
-                                    }},
-                                    "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12424000" }
-                                }}
-                            ]},
-                            "gage-expression" : { "S" : "[USGS-12424000]" }
-                        }
-                    }
-                }
-            }
-        },
-        {
-            "PutRequest" : {
-                "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#3" },
-                    "sk" : { "S" : "REGION#1" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
-                        "id" : { "N" : "1" },
-                        "name" : { "S" : "Spokane/Coeur d'Alene Area" },
-                        "boundary" : { "L" : []}
+                        }},
+                        "created-by" : { "S" : "Chris Mowry" },
+                        "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                        "modified-by" : { "S" : "Chris Mowry" },
+                        "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                     }}
                 }
             }
@@ -1010,10 +1025,51 @@
         {
             "PutRequest" : {
                 "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#3" },
+                    "pk" : { "S" : "REGION#SPOKANE-CDA" },
+                    "sk" : { "S" : "FLOWSOURCE#3" },
+                    "type" : { "S" : "FLOWSOURCE" },
+                    "flow-source-id" : { "S" : "FLOWSOURCE#3" },
+                    "flow-source" : { "M" : {
+                        "id" : { "N" : "3" },
+                        "flow" : { "M" : {
+                                "value" : { "N" : "0" },
+                                "unit" : { "S" : "FT" }
+                            }
+                        },
+                        "gages" : { "L" : [
+                            { "M" : {
+                                "id" : { "S" : "USGS-12424000" },
+                                "name" : { "S" : "Hangman Creek at Spokane, WA" },
+                                "values" : { "L" : [] },
+                                "history" : { "L" : [] },
+                                "location" : { "M" : {
+                                    "state" : { "S" : "WASHINGTON"},
+                                    "coordinates" : { "M" : {
+                                        "espg" : { "S" : "4326" },
+                                        "lat" : { "N" : "47.6526688" },
+                                        "lng" : { "N" : "-117.449658" }
+                                    }}
+                                }},
+                                "url" : { "S" : "https://waterdata.usgs.gov/monitoring-location/12424000" }
+                            }}
+                        ]},
+                        "gage-expression" : { "S" : "[USGS-12424000]" },
+                        "created-by" : { "S" : "Chris Mowry" },
+                        "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                        "modified-by" : { "S" : "Chris Mowry" },
+                        "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
+                    }}
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#7" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
+                    "type" : { "S" : "SURFSPOT" },
+                    "flow-source-id" : { "S" : "FLOWSOURCE#3" },
+                    "surf-spot" : { "M" : {
                         "id" : { "N" : "6" },
                         "name" : { "S" : "Flower Power" },
                         "surf-spots" : { "L" : [
@@ -1105,7 +1161,11 @@
                                 ]},
                                 "images" : { "L" : []},
                                 "videos" : { "L" : []},
-                                "history" : { "L" : []}
+                                "history" : { "L" : []},
+                                "created-by" : { "S" : "Chris Mowry" },
+                                "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                                "modified-by" : { "S" : "Chris Mowry" },
+                                "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                             }}
                         ]},
                         "location" : { "M" : {
@@ -1115,17 +1175,23 @@
                                 "lat" : { "N" : "47.641006142260075" },
                                 "lng" : { "N" : "-117.44431753747203" }
                             }}
-                        }}
+                        }},
+                        "created-by" : { "S" : "Chris Mowry" },
+                        "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                        "modified-by" : { "S" : "Chris Mowry" },
+                        "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                     }}
                 }
-        }},
+            }
+        },
         {
             "PutRequest" : {
                 "Item" : {
-                    "pk" : { "S" : "FLOWSOURCE#3" },
+                    "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#8" },
-                    "region" : { "S" : "REGION#SPOKANE-CDA" },
-                    "data" : { "M" : {
+                    "type" : { "S" : "SURFSPOT" },
+                    "flow-source-id" : { "S" : "FLOWSOURCE#3" },
+                    "surf-spot" : { "M" : {
                         "id" : { "N" : "7" },
                         "name" : { "S" : "Dirty Mother" },
                         "surf-spots" : { "L" : [
@@ -1217,7 +1283,11 @@
                                 ]},
                                 "images" : { "L" : []},
                                 "videos" : { "L" : []},
-                                "history" : { "L" : []}
+                                "history" : { "L" : []},
+                                "created-by" : { "S" : "Chris Mowry" },
+                                "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                                "modified-by" : { "S" : "Chris Mowry" },
+                                "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                             }}
                         ]},
                         "location" : { "M" : {
@@ -1227,9 +1297,14 @@
                                 "lat" : { "N" : "47.503071381835944" },
                                 "lng" : { "N" : "-117.34330761645792" }
                             }}
-                        }}
+                        }},
+                        "created-by" : { "S" : "Chris Mowry" },
+                        "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                        "modified-by" : { "S" : "Chris Mowry" },
+                        "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                     }}
                 }
-        }}
+            }
+        }
     ]
 }

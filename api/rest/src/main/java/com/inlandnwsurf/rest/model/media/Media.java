@@ -7,9 +7,10 @@ import java.net.URL;
 
 @Data
 @NoArgsConstructor
-public class Image {
-    private long id;
+public class Media {
+
+    private int order;
     private String name;
     private URL url;
-    private int order;
+
 }

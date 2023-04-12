@@ -3,31 +3,33 @@ package com.inlandnwsurf.rest.model.surfspots;
 import com.inlandnwsurf.rest.model.levels.*;
 import com.inlandnwsurf.rest.model.location.Location;
 import com.inlandnwsurf.rest.model.management.ManagedItem;
-import com.inlandnwsurf.rest.model.media.Image;
 import com.inlandnwsurf.rest.model.media.Link;
+import com.inlandnwsurf.rest.model.media.Media;
 import com.inlandnwsurf.rest.model.media.Section;
-import com.inlandnwsurf.rest.model.media.Video;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 public class SurfSpotLocation extends ManagedItem {
     private long id;
     private String name;
-    private ArrayList<Section> description;
+    private List<Section> description;
     private Difficulty difficulty;
     private String tricks;
     private String features;
     private Location location;
     private Location access;
+    private String flowSourceName;
     private FlowSource currentFlow;
     private FlowRange flowRange;
     private FlowRange optimumFlowRange;
-    private ArrayList<FlowInfo> flowInfo;
-    private ArrayList<Link> links;
-    private ArrayList<Image> images;
-    private ArrayList<Video> videos;
-    private History history;
+    private List<FlowInfo> flowInfo;
+    private List<Link> links;
+    private List<Media> images;
+    private List<Media> videos;
+    private List<HistoryValue> history;
+
 }

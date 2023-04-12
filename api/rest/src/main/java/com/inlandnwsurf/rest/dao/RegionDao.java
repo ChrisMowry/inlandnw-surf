@@ -1,4 +1,4 @@
 package com.inlandnwsurf.rest.dao;
 
-public class RegionDao {
+public interface RegionDao {
 }

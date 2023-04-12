@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 public class Location {
 
     private Region region;
-    private State state;
+    private String state;
     private Coordinates coordinates;
 
 }

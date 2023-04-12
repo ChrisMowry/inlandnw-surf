@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Section {
 
+    private int order;
     private String heading;
     private String paragraph;
-    private int order;
 
 }
