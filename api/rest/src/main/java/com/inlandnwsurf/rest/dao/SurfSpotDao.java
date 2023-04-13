@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface SurfSpotDao {
 
-    public PageIterable<SurfSpot> getSurfSpots(String region);
+    public List<SurfSpot> getSurfSpots(String region);
     public SurfSpot getSurfSpot( String region,
                                  long surfSpotId );
     public void createSurfSpot( String region,

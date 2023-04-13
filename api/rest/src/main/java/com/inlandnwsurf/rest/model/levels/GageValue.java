@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 public class GageValue {
 
     private double gageHeightValue;
-    private Unit gageHeight;
+    private Unit gageHeightUnit;
     private double dischargeValue;
-    private Unit discharge;
+    private Unit dischargeUnit;
 
 }

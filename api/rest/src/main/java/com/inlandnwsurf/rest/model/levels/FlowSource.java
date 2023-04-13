@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class FlowSource extends ManagedItem {
-    private String id;
+    private long id;
     private Flow flow;
     private List<Gage> gages;
     private String gageExpression;
