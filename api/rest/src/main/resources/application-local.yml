@@ -1,15 +1,17 @@
 spring:
-  profiles: local
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri:
-          jwk-set-uri:
+  config:
+    activate:
+      on-profile: local
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri:
+#          jwk-set-uri:
 database:
   dynamodb:
     local: true
-    table: ${TABLE_NAME:surf-spots-local}
+    table: ${TABLE_NAME:surf-spots}
     endpoint: http://localhost:8000/
     accesskey: dummy
     secretkey: dummy

@@ -2,36 +2,34 @@ package com.inlandnwsurf.rest.dao;
 
 import com.inlandnwsurf.rest.model.surfspots.SurfSpot;
 import com.inlandnwsurf.rest.model.surfspots.SurfSpotLocation;
-import software.amazon.awssdk.enhanced.dynamodb.model.PageIterable;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface SurfSpotDao {
 
-    public List<SurfSpot> getSurfSpots(String region);
-    public SurfSpot getSurfSpot( String region,
+    public List<SurfSpot> getSurfSpots(String regionId);
+    public SurfSpot getSurfSpot( String regionId,
                                  long surfSpotId );
-    public void createSurfSpot( String region,
+    public SurfSpot createSurfSpot( String regionId,
                                 SurfSpot surfSpot );
-    public void updateSurfSpot( String region,
+    public SurfSpot updateSurfSpot( String regionId,
                                 long surfSpotId,
                                 SurfSpot surfSpot );
-    public void deleteSurfSpot( String region,
+    public SurfSpot deleteSurfSpot( String regionId,
                                 long surfSpotId );
-    public List<SurfSpotLocation> getSurfSpotLocations( String region,
+    public List<SurfSpotLocation> getSurfSpotLocations( String regionId,
                                                         long surfSpotId );
-    public SurfSpotLocation getSurfSpotLocation( String region,
+    public SurfSpotLocation getSurfSpotLocation( String regionId,
                                                  long surfSpotId,
                                                  long surfSpotLocationId );
-    public void addSurfSpotLocation( String region,
+    public SurfSpotLocation addSurfSpotLocation( String regionId,
                                      long surfSpotId,
                                      SurfSpotLocation surfSpotLocation );
-    public void updateSurfSpotLocation( String region,
+    public SurfSpotLocation updateSurfSpotLocation( String regionId,
                                         long surfSpotId,
                                         long surfSpotLocationId,
                                         SurfSpotLocation surfSpotLocation );
-    public void deleteSurfSpotLocation( String region,
+    public SurfSpotLocation deleteSurfSpotLocation( String regionId,
                                         long surfSpotId,
                                         long surfSpotLocationId );
 

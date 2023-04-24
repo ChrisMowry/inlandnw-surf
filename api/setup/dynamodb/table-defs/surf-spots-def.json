@@ -7,7 +7,24 @@
     ],
     "AttributeDefinitions": [
       { "AttributeName": "pk", "AttributeType": "S" },
-      { "AttributeName": "sk", "AttributeType": "S" }
+      { "AttributeName": "sk", "AttributeType": "S" },
+      { "AttributeName": "rowtype", "AttributeType": "S" }
+    ],
+    "GlobalSecondaryIndexes" : [
+      {
+        "IndexName": "resource-index",
+        "Projection": {
+            "ProjectionType": "ALL"
+        },
+        "ProvisionedThroughput": {
+            "WriteCapacityUnits": 1,
+            "ReadCapacityUnits": 1
+        },
+        "KeySchema": [
+            { "AttributeName": "rowtype", "KeyType": "HASH" },
+            { "AttributeName": "pk", "KeyType": "RANGE" }
+        ]
+    }
     ],
     "ProvisionedThroughput": {
       "ReadCapacityUnits": 1,

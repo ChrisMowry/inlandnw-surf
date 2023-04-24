@@ -11,6 +11,6 @@ public class Media {
 
     private int order;
     private String name;
-    private URL url;
+    private String url;
 
 }

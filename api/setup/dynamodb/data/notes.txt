@@ -1,0 +1,7 @@
+
+
+Access Patterns:
+   Get Surf Spots by region - one to many - array of SurfSpots
+   Get FlowSources
+   Get Regions
+

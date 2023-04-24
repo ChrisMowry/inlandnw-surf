@@ -5,8 +5,9 @@
                 "Item" : {
                     "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "REGION#1" },
-                    "type" : { "S" : "REGION" },
+                    "rowtype" : { "S" : "REGION" },
                     "region" : { "M" : {
+                        "id" : { "S" : "SPOKANE-CDA" },
                         "name" : { "S" : "Spokane/Coeur d'Alene Area" },
                         "boundary" : { "L" : []},
                         "created-by" : { "S" : "Chris Mowry" },
@@ -22,13 +23,13 @@
                 "Item" : {
                     "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "FLOWSOURCE#1" },
-                    "type" : { "S" : "FLOWSOURCE" },
-                    "flow-source-id" : { "S" : "FLOWSOURCE#1" },
+                    "rowtype" : { "S" : "FLOWSOURCE" },
                     "flow-source" : { "M" : {
                         "id" : { "N" : "1" },
                         "flow" : { "M" : {
                                 "value" : { "N" : "0" },
-                                "unit" : { "S" : "CFS" }
+                                "unit" : { "S" : "CFS" },
+                                "flow-type" : { "S" : "DISCHARGE" }
                             }
                         },
                         "gages" : { "L" : [
@@ -62,11 +63,11 @@
                 "Item" : {
                     "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#1" },
-                    "type" : { "S" : "SURFSPOT" },
-                    "flow-source-id" : { "S" : "FLOWSOURCE#1" },
+                    "rowtype" : { "S" : "SURFSPOT" },
                     "surf-spot" : { "M" : {
                         "id" : { "N" : "1" },
                         "name" : { "S" : "Cyclops" },
+                        "flow-source-id" : { "S" : "FLOWSOURCE#1" },
                         "surf-spots" : { "L" : [
                             { "M" : {
                                 "id" : { "N" : "1" },
@@ -100,21 +101,25 @@
                                 "flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "35000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "45000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }}
                                 }},
                                 "optimum-flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "35000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "45000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }}
                                 }},
                                 "flow-info" : { "L" : []},
@@ -155,13 +160,13 @@
                 "Item" : {
                     "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "FLOWSOURCE#2" },
-                    "type" : { "S" : "FLOWSOURCE" },
-                    "flow-source-id" : { "S" : "FLOWSOURCE#2" },
+                    "rowtype" : { "S" : "FLOWSOURCE" },
                     "flow-source" : { "M" : {
                         "id" : { "N" : "2" },
                         "flow" : { "M" : {
                                 "value" : { "N" : "0" },
-                                "unit" : { "S" : "CFS" }
+                                "unit" : { "S" : "CFS" },
+                                "flow-type" : { "S" : "DISCHARGE" }
                             }
                         },
                         "gages" : { "L" : [
@@ -195,14 +200,14 @@
                 "Item" : {
                     "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#2" },
-                    "type" : { "S" : "SURFSPOT" },
-                    "flow-source-id" : { "S" : "FLOWSOURCE#2" },
+                    "rowtype" : { "S" : "SURFSPOT" },
                     "surf-spot" : { "M" : {
                         "id" : { "N" : "2" },
                         "name" : { "S" : "Trailer Park" },
+                        "flow-source-id" : { "S" : "FLOWSOURCE#2" },
                         "surf-spots" : { "L" : [
                             { "M" : {
-                                "id" : { "N" : "2" },
+                                "id" : { "N" : "1" },
                                 "name" : { "S" : "Trailer Park" },
                                 "description" : { "L" : [
                                     { "M" : {
@@ -233,21 +238,25 @@
                                 "flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "3200.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "7500.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }}
                                 }},
                                 "optimum-flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "4500.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "6000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }}
                                 }},
                                 "flow-info" : { "L" : [
@@ -256,11 +265,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "3200.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "3800.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }},
                                             "description" : { "S" : "Low End-Shallow Hole" }
                                         }}
@@ -270,11 +281,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "3800.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "4800.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }}
                                         }},
                                         "description" : { "S" : "Prime" }
@@ -284,11 +297,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "4800.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "5200.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }}
                                         }},
                                         "description" : { "S" : "Upper End- Small Breaking Wave" }
@@ -337,14 +352,14 @@
                 "Item" : {
                     "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#3" },
-                    "type" : { "S" : "SURFSPOT" },
-                    "flow-source-id" : { "S" : "FLOWSOURCE#2" },
+                    "rowtype" : { "S" : "SURFSPOT" },
                     "surf-spot" : { "M" : {
                         "id" : { "N" : "3" },
                         "name" : { "S" : "Corbin" },
+                        "flow-source-id" : { "S" : "FLOWSOURCE#2" },
                         "surf-spots" : { "L" : [
                             { "M" : {
-                                "id" : { "N" : "3" },
+                                "id" : { "N" : "1" },
                                 "name" : { "S" : "Corbin" },
                                 "description" : { "L" : [
                                     { "M" : {
@@ -375,21 +390,25 @@
                                 "flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "17000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "24000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }}
                                 }},
                                 "optimum-flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "19500.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "22000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }}
                                 }},
                                 "flow-info" : { "L" : [
@@ -398,11 +417,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "17000.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "19500.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }}
                                         }},
                                         "description" : { "S" : "The wave is still forming and will feel slightly less retentive." }
@@ -412,11 +433,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "22000.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "24000.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }}
                                         }},
                                         "description" : { "S" : "The wave starts to periodically surge green and the surfer right shoulder starts to lose shape." }
@@ -459,14 +482,14 @@
                 "Item" : {
                     "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#4" },
-                    "type" : { "S" : "SURFSPOT" },
-                    "flow-source-id" : { "S" : "FLOWSOURCE#2" },
+                    "rowtype" : { "S" : "SURFSPOT" },
                     "surf-spot" : { "M" : {
                         "id" : { "N" : "4" },
                         "name" : { "S" : "Dead Dog" },
+                        "flow-source-id" : { "S" : "FLOWSOURCE#2" },
                         "surf-spots" : { "L" : [
                             { "M" : {
-                                "id" : { "N" : "4" },
+                                "id" : { "N" : "1" },
                                 "name" : { "S" : "Dead Dog" },
                                 "description" : { "L" : [
                                     { "M" : {
@@ -497,21 +520,25 @@
                                 "flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "11000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "45000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }}
                                 }},
                                 "optimum-flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "15000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "19000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : { "S" : "DISCHARGE" }
                                     }}
                                 }},
                                 "flow-info" : { "L" : [
@@ -520,11 +547,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "11000.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "13000.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }}
                                         }},
                                         "description" : { "S" : "Tiny and shallow" }
@@ -534,11 +563,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "20000.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "45000.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : { "S" : "DISCHARGE" }
                                             }}
                                         }},
                                         "description" : { "S" : "Surfer's left becomes very sticky" }
@@ -581,14 +612,14 @@
                 "Item" : {
                     "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#5" },
-                    "type" : { "S" : "SURFSPOT" },
-                    "flow-source-id" : { "S" : "FLOWSOURCE#2" },
+                    "rowtype" : { "S" : "SURFSPOT" },
                     "surf-spot" : { "M" : {
                         "id" : { "N" : "5" },
                         "name" : { "S" : "Sullivan" },
+                        "flow-source-id" : { "S" : "FLOWSOURCE#2" },
                         "surf-spots" : { "L" : [
                             { "M" : {
-                                "id" : { "N" : "5" },
+                                "id" : { "N" : "1" },
                                 "name" : { "S" : "Sullivan" },
                                 "description" : { "L" : [
                                     { "M" : {
@@ -619,21 +650,25 @@
                                 "flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "2800.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "3400.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }}
                                 }},
                                 "optimum-flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "2800.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "3100.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }}
                                 }},
                                 "flow-info" : { "L" : [
@@ -642,11 +677,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "2600.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "2800.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }}
                                         }},
                                         "description" : { "S" : "Low End- Shallow Hole" }
@@ -656,11 +693,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "2800.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "3100.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }}
                                         }},
                                         "description" : { "S" : "Prime Flow" }
@@ -670,11 +709,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "3100.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "3400.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }}
                                         }},
                                         "description" : { "S" : "Upper End- Small Breaking Wave" }
@@ -696,7 +737,7 @@
                                 "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                             }},
                             { "M" : {
-                                "id" : { "N" : "6" },
+                                "id" : { "N" : "2" },
                                 "name" : { "S" : "Duplex" },
                                 "description" : { "L" : [
                                     { "M" : {
@@ -727,21 +768,25 @@
                                 "flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "6000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "9000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }}
                                 }},
                                 "optimum-flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "6000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "8000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }}
                                 }},
                                 "flow-info" : { "L" : [
@@ -750,11 +795,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "6000.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "7500.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }}
                                         }},
                                         "description" : { "S" : "Top wave is better" }
@@ -764,11 +811,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "7500.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "8000.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }}
                                         }},
                                         "description" : { "S" : "Bottom wave is better" }
@@ -790,7 +839,7 @@
                                 "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
                             }},
                             { "M" : {
-                                "id" : { "N" : "7" },
+                                "id" : { "N" : "3" },
                                 "name" : { "S" : "Mini Climax" },
                                 "description" : { "L" : [
                                     { "M" : {
@@ -821,21 +870,25 @@
                                 "flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "5700.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "9000.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }}
                                 }},
                                 "optimum-flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "5700.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "7500.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }}
                                 }},
                                 "flow-info" : { "L" : [
@@ -844,11 +897,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "5700.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "7500.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }}
                                         }},
                                         "description" : { "S" : "Prime Flow Range" }
@@ -858,11 +913,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "7500.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "9000.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }}
                                         }},
                                         "description" : { "S" : "Steep Green Wave (Long Boat)" }
@@ -905,14 +962,14 @@
                 "Item" : {
                     "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#6" },
-                    "type" : { "S" : "SURFSPOT" },
-                    "flow-source-id" : { "S" : "FLOWSOURCE#2" },
+                    "rowtype" : { "S" : "SURFSPOT" },
                     "surf-spot" : { "M" : {
                         "id" : { "N" : "5" },
                         "name" : { "S" : "Zoo" },
+                        "flow-source-id" : { "S" : "FLOWSOURCE#2" },
                         "surf-spots" : { "L" : [
                             { "M" : {
-                                "id" : { "N" : "8" },
+                                "id" : { "N" : "1" },
                                 "name" : { "S" : "Zoo" },
                                 "description" : { "L" : [
                                     { "M" : {
@@ -943,21 +1000,25 @@
                                 "flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "2200.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "3500.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }}
                                 }},
                                 "optimum-flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "2200.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "2800.0" },
-                                        "unit" : { "S" : "CFS" }
+                                        "unit" : { "S" : "CFS" },
+                                        "flow-type" : {"S" : "DISCHARGE"}
                                     }}
                                 }},
                                 "flow-info" : { "L" : [
@@ -966,11 +1027,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "2200.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "2800.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }}
                                         }},
                                         "description" : { "S" : "Prime Flow" }
@@ -980,11 +1043,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "2800.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "3500.0" },
-                                                "unit" : { "S" : "CFS" }
+                                                "unit" : { "S" : "CFS" },
+                                                "flow-type" : {"S" : "DISCHARGE"}
                                             }}
                                         }},
                                         "description" : { "S" : "Upper End-A little more flat but still breaking and good for a long boat surf." }
@@ -1027,13 +1092,13 @@
                 "Item" : {
                     "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "FLOWSOURCE#3" },
-                    "type" : { "S" : "FLOWSOURCE" },
-                    "flow-source-id" : { "S" : "FLOWSOURCE#3" },
+                    "rowtype" : { "S" : "FLOWSOURCE" },
                     "flow-source" : { "M" : {
                         "id" : { "N" : "3" },
                         "flow" : { "M" : {
                                 "value" : { "N" : "0" },
-                                "unit" : { "S" : "FT" }
+                                "unit" : { "S" : "FT" },
+                                "flow-type" : {"S" : "GAGE_HEIGHT"}
                             }
                         },
                         "gages" : { "L" : [
@@ -1067,14 +1132,14 @@
                 "Item" : {
                     "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#7" },
-                    "type" : { "S" : "SURFSPOT" },
-                    "flow-source-id" : { "S" : "FLOWSOURCE#3" },
+                    "rowtype" : { "S" : "SURFSPOT" },
                     "surf-spot" : { "M" : {
                         "id" : { "N" : "6" },
                         "name" : { "S" : "Flower Power" },
+                        "flow-source-id" : { "S" : "FLOWSOURCE#3" },
                         "surf-spots" : { "L" : [
                             { "M" : {
-                                "id" : { "N" : "9" },
+                                "id" : { "N" : "1" },
                                 "name" : { "S" : "Flower Power" },
                                 "description" : { "L" : [
                                     { "M" : {
@@ -1105,21 +1170,25 @@
                                 "flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "4.4" },
-                                        "unit" : { "S" : "FT" }
+                                        "unit" : { "S" : "FT" },
+                                        "flow-type" : {"S" : "GAGE_HEIGHT"}
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "5.8" },
-                                        "unit" : { "S" : "FT" }
+                                        "unit" : { "S" : "FT" },
+                                        "flow-type" : {"S" : "GAGE_HEIGHT"}
                                     }}
                                 }},
                                 "optimum-flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "4.4" },
-                                        "unit" : { "S" : "FT" }
+                                        "unit" : { "S" : "FT" },
+                                        "flow-type" : {"S" : "GAGE_HEIGHT"}
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "4.7" },
-                                        "unit" : { "S" : "FT" }
+                                        "unit" : { "S" : "FT" },
+                                        "flow-type" : {"S" : "GAGE_HEIGHT"}
                                     }}
                                 }},
                                 "flow-info" : { "L" : [
@@ -1128,11 +1197,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "4.4" },
-                                                "unit" : { "S" : "FT" }
+                                                "unit" : { "S" : "FT" },
+                                                "flow-type" : {"S" : "GAGE_HEIGHT"}
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "4.7" },
-                                                "unit" : { "S" : "FT" }
+                                                "unit" : { "S" : "FT" },
+                                                "flow-type" : {"S" : "GAGE_HEIGHT"}
                                             }}
                                         }},
                                         "description" : { "S" : "The shoulders of the wave are surgy and make it difficult to time the various tricks." }
@@ -1142,11 +1213,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "4.7" },
-                                                "unit" : { "S" : "FT" }
+                                                "unit" : { "S" : "FT" },
+                                                "flow-type" : {"S" : "GAGE_HEIGHT"}
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "5.8" },
-                                                "unit" : { "S" : "FT" }
+                                                "unit" : { "S" : "FT" },
+                                                "flow-type" : {"S" : "GAGE_HEIGHT"}
                                             }}
                                         }},
                                         "description" : { "S" : "The center pile starts to become smaller and less retentive. Forcing the paddler to be on their game in order to prevent washing off." }
@@ -1189,14 +1262,14 @@
                 "Item" : {
                     "pk" : { "S" : "REGION#SPOKANE-CDA" },
                     "sk" : { "S" : "SURFSPOT#8" },
-                    "type" : { "S" : "SURFSPOT" },
-                    "flow-source-id" : { "S" : "FLOWSOURCE#3" },
+                    "rowtype" : { "S" : "SURFSPOT" },
                     "surf-spot" : { "M" : {
                         "id" : { "N" : "7" },
                         "name" : { "S" : "Dirty Mother" },
+                        "flow-source-id" : { "S" : "FLOWSOURCE#3" },
                         "surf-spots" : { "L" : [
                             { "M" : {
-                                "id" : { "N" : "10" },
+                                "id" : { "N" : "1" },
                                 "name" : { "S" : "Dirty Mother" },
                                 "description" : { "L" : [
                                     { "M" : {
@@ -1227,21 +1300,25 @@
                                 "flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "5.5" },
-                                        "unit" : { "S" : "FT" }
+                                        "unit" : { "S" : "FT" },
+                                        "flow-type" : {"S" : "GAGE_HEIGHT"}
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "7.0" },
-                                        "unit" : { "S" : "FT" }
+                                        "unit" : { "S" : "FT" },
+                                        "flow-type" : {"S" : "GAGE_HEIGHT"}
                                     }}
                                 }},
                                 "optimum-flow-range" : { "M" : {
                                     "min-flow" : { "M" : {
                                         "value" : { "N" : "6.0" },
-                                        "unit" : { "S" : "FT" }
+                                        "unit" : { "S" : "FT" },
+                                        "flow-type" : {"S" : "GAGE_HEIGHT"}
                                     }},
                                     "max-flow" : { "M" : {
                                         "value" : { "N" : "7.0" },
-                                        "unit" : { "S" : "FT" }
+                                        "unit" : { "S" : "FT" },
+                                        "flow-type" : {"S" : "GAGE_HEIGHT"}
                                     }}
                                 }},
                                 "flow-info" : { "L" : [
@@ -1250,11 +1327,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "5.5" },
-                                                "unit" : { "S" : "FT" }
+                                                "unit" : { "S" : "FT" },
+                                                "flow-type" : {"S" : "GAGE_HEIGHT"}
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "6.0" },
-                                                "unit" : { "S" : "FT" }
+                                                "unit" : { "S" : "FT" },
+                                                "flow-type" : {"S" : "GAGE_HEIGHT"}
                                             }}
                                         }},
                                         "description" : { "S" : "The wave gets smaller and extra effort is needed to load the wave." }
@@ -1264,11 +1343,13 @@
                                         "flow-range" : { "M" : {
                                             "min-flow" : { "M" : {
                                                 "value" : { "N" : "6.0" },
-                                                "unit" : { "S" : "FT" }
+                                                "unit" : { "S" : "FT" },
+                                                "flow-type" : {"S" : "GAGE_HEIGHT"}
                                             }},
                                             "max-flow" : { "M" : {
                                                 "value" : { "N" : "7.0" },
-                                                "unit" : { "S" : "FT" }
+                                                "unit" : { "S" : "FT" },
+                                                "flow-type" : {"S" : "GAGE_HEIGHT"}
                                             }}
                                         }},
                                         "description" : { "S" : "The wave remains green but is steep and fast, and much easier to load from the eddy." }
@@ -1298,6 +1379,24 @@
                                 "lng" : { "N" : "-117.34330761645792" }
                             }}
                         }},
+                        "created-by" : { "S" : "Chris Mowry" },
+                        "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
+                        "modified-by" : { "S" : "Chris Mowry" },
+                        "modified-on" : { "S" : "2023-04-09T21:00:00.00Z" }
+                    }}
+                }
+            }
+        },
+        {
+            "PutRequest" : {
+                "Item" : {
+                    "pk" : { "S" : "REGION#WENATCHEE-VALLEY" },
+                    "sk" : { "S" : "REGION#2" },
+                    "rowtype" : { "S" : "REGION" },
+                    "region" : { "M" : {
+                        "id" : { "S" : "WENATCHEE-VALLEY" },
+                        "name" : { "S" : "Wenatchee Valley" },
+                        "boundary" : { "L" : []},
                         "created-by" : { "S" : "Chris Mowry" },
                         "created-on" : { "S" : "2023-04-09T21:00:00.00Z" },
                         "modified-by" : { "S" : "Chris Mowry" },

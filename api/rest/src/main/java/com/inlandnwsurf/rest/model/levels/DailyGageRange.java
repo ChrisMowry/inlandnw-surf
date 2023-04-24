@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 public class DailyGageRange {
-    private Date date;
+    private String date;
     private GageValue minGageFlow;
     private GageValue maxGageFlow;
 

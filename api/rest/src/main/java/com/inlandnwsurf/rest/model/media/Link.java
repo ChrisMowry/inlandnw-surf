@@ -12,5 +12,5 @@ import java.net.URL;
 public class Link {
     private int order;
     private String label;
-    private URL url;
+    private String url;
 }

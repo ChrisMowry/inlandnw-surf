@@ -7,19 +7,23 @@ import com.inlandnwsurf.rest.model.levels.FlowSource;
 import com.inlandnwsurf.rest.model.location.Region;
 import com.inlandnwsurf.rest.model.surfspots.SurfSpot;
 import com.inlandnwsurf.rest.model.surfspots.SurfSpotLocation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
 import software.amazon.awssdk.enhanced.dynamodb.Key;
 import software.amazon.awssdk.enhanced.dynamodb.model.PageIterable;
 import software.amazon.awssdk.enhanced.dynamodb.model.QueryConditional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.inlandnwsurf.rest.dao.dynamodb.DynamoDbTableSchemas.getDynamoDbRecordTableSchema;
+import static com.inlandnwsurf.rest.dao.dynamodb.DynamoDbTableSchemas.getSurfSpotAccessDynamoDbRecordTableSchema;
 
+@Service
+@Slf4j
+// TODO: move service components to Service class
 public class SurfSpotDynamodbDao implements SurfSpotDao {
 
     private final DynamoDbEnhancedClient dynamoDbClient;
@@ -32,12 +36,7 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
     }
 
     private DynamoDbTable<DynamoDbRecord> getDynamoDbRecordTable(){
-
-        DynamoDbTable<DynamoDbRecord> dynamoDbRecordTable = dynamoDbClient.table(
-                this.dynamoDbProperties.getTable(),
-                getDynamoDbRecordTableSchema());
-
-        return dynamoDbRecordTable;
+        return dynamoDbClient.table( this.dynamoDbProperties.getTable(), getSurfSpotAccessDynamoDbRecordTableSchema());
     }
 
     /**
@@ -46,6 +45,7 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
      */
     @Override
     public List<SurfSpot> getSurfSpots(String regionId) {
+        regionId = regionId.toUpperCase();
 
         DynamoDbTable<DynamoDbRecord> dynamoDbRecordTable = getDynamoDbRecordTable();
 
@@ -61,22 +61,26 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
         // gets the region associated with the surf spots
         Region region = dynamoDbRecord
                 .items().stream()
-                .filter( item -> item.getType().equals("REGION"))
+                .filter( item -> item.getType().equals(DynamoDbDataType.REGION))
                 .map( item -> item.getRegion() )
                 .findFirst()
                 .orElse(null);
 
+        region.setId(regionId);
+
         // gets the flow sources associated with the surf spots
         List<FlowSource> flowSources = dynamoDbRecord
                 .items().stream()
-                .filter( item -> item.getType().equals("FLOWSOURCE"))
+                .filter( item -> item.getType().equals(DynamoDbDataType.FLOWSOURCE))
                 .map(record -> record.getFlowSource())
                 .collect(Collectors.toList());
 
+
         List<SurfSpot> surfspots = dynamoDbRecord
                 .items().stream()
-                .filter( item -> item.getType().equals("SURFSPOT"))
-                .map( item -> assembleSurfSpot(item.getSurfspot(), region, flowSources ) )
+                .filter( item -> item.getType().equals(DynamoDbDataType.SURFSPOT))
+                .map( item -> item.getSurfspots() )
+                .map(surfspot -> assembleSurfSpot(surfspot, region, flowSources))
                 .collect(Collectors.toList());
 
         return surfspots;
@@ -87,25 +91,24 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
         List<SurfSpotLocation> surfspotLocations = surfSpot.getSurfspots()
                 .stream()
                 .map( spot -> {
-                    spot.setCurrentFlow(getFlowSource(spot, flowSources));
+                    spot.setCurrentFlow(getFlowSource(surfSpot.getFlowSourceId(), flowSources));
                     return spot;
                 })
                 .collect(Collectors.toList());
+
         return surfSpot;
     }
 
-    private static FlowSource getFlowSource(SurfSpotLocation surfspotLocation,
+    private static FlowSource getFlowSource(String flowSourceName,
                                             List<FlowSource> flowSources){
-        String flowSourceName = surfspotLocation.getFlowSourceName();
-        long flowSourceId = Long.parseLong(flowSourceName.substring(flowSourceName.lastIndexOf("#")) + 1);
+        long flowSourceId = Long.parseLong( flowSourceName.replaceAll("[^\\d.]", "")  );
         FlowSource flowSource = flowSources.stream()
-                .filter( flowsource -> flowsource.getId() == flowSourceId)
+                .filter( flowsource -> flowsource.getId() == flowSourceId )
                 .findFirst()
                 .orElse(null);
 
         return flowSource;
     }
-
 
 
     /**
@@ -129,8 +132,9 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
      * @param surfSpot
      */
     @Override
-    public void createSurfSpot(String regionId, SurfSpot surfSpot) {
-
+    public SurfSpot createSurfSpot(String regionId, SurfSpot surfSpot) {
+        // TODO: implement this method
+        return null;
     }
 
     /**
@@ -139,8 +143,9 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
      * @param surfSpot
      */
     @Override
-    public void updateSurfSpot(String regionId, long surfSpotId, SurfSpot surfSpot) {
-
+    public SurfSpot updateSurfSpot(String regionId, long surfSpotId, SurfSpot surfSpot) {
+        // TODO implement this method
+        return null;
     }
 
     /**
@@ -148,8 +153,9 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
      * @param surfSpotId
      */
     @Override
-    public void deleteSurfSpot(String regionId, long surfSpotId) {
-
+    public SurfSpot deleteSurfSpot(String regionId, long surfSpotId) {
+        // TODO implement this method
+        return null;
     }
 
     /**
@@ -158,8 +164,11 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
      * @return
      */
     @Override
-    public ArrayList<SurfSpotLocation> getSurfSpotLocations(String regionId, long surfSpotId) {
-        return null;
+    public List<SurfSpotLocation> getSurfSpotLocations(String regionId, long surfSpotId) {
+        SurfSpot spot = getSurfSpot(regionId, surfSpotId);
+
+        // TODO implement this method
+        return spot.getSurfspots();
     }
 
     /**
@@ -170,16 +179,41 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
      */
     @Override
     public SurfSpotLocation getSurfSpotLocation(String regionId, long surfSpotId, long surfSpotLocationId) {
+
+        SurfSpotLocation spotLoc = this.getSurfSpotLocations( regionId, surfSpotId )
+                .stream()
+                .filter( item -> item.getId() == surfSpotLocationId )
+                .findFirst().orElse(null);
+
+        return spotLoc;
+    }
+
+    /**
+     * @param regionId
+     * @param surfSpotId
+     * @param surfSpotLocation
+     */
+    @Override
+    public SurfSpotLocation addSurfSpotLocation(String regionId, long surfSpotId, SurfSpotLocation surfSpotLocation) {
+
+        // TODO implement this method
         return null;
     }
 
     /**
      * @param regionId
      * @param surfSpotId
+     * @param surfSpotLocationId
      * @param surfSpotLocation
      */
     @Override
-    public void addSurfSpotLocation(String regionId, long surfSpotId, SurfSpotLocation surfSpotLocation) {
+    public SurfSpotLocation updateSurfSpotLocation(String regionId,
+                                       long surfSpotId,
+                                       long surfSpotLocationId,
+                                       SurfSpotLocation surfSpotLocation) {
+
+        // TODO implement this method
+        return null;
 
     }
 
@@ -187,20 +221,11 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
      * @param regionId
      * @param surfSpotId
      * @param surfSpotLocationId
-     * @param surfSpotLocation
      */
     @Override
-    public void updateSurfSpotLocation(String regionId, long surfSpotId, long surfSpotLocationId, SurfSpotLocation surfSpotLocation) {
+    public SurfSpotLocation deleteSurfSpotLocation(String regionId, long surfSpotId, long surfSpotLocationId) {
 
-    }
-
-    /**
-     * @param regionId
-     * @param surfSpotId
-     * @param surfSpotLocationId
-     */
-    @Override
-    public void deleteSurfSpotLocation(String regionId, long surfSpotId, long surfSpotLocationId) {
-
+        // TODO implement this method
+        return null;
     }
 }

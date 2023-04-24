@@ -18,29 +18,28 @@ import java.net.URL;
 import java.time.Instant;
 import java.util.Date;
 
-import static software.amazon.awssdk.enhanced.dynamodb.mapper.StaticAttributeTags.primaryPartitionKey;
-import static software.amazon.awssdk.enhanced.dynamodb.mapper.StaticAttributeTags.primarySortKey;
+import static software.amazon.awssdk.enhanced.dynamodb.mapper.StaticAttributeTags.*;
 
 public final class DynamoDbTableSchemas {
 
-    public static TableSchema<DynamoDbRecord> getDynamoDbRecordTableSchema(){
+    public static TableSchema<DynamoDbRecord> getResourceAccessDynamoDbRecordTableSchema(){
         return TableSchema.builder(DynamoDbRecord.class)
                 .newItemSupplier( DynamoDbRecord::new )
+                .addAttribute( DynamoDbDataType.class, a -> a.name("rowtype")
+                        .getter( DynamoDbRecord::getType )
+                        .setter( DynamoDbRecord::setType )
+                        .attributeConverter(EnumAttributeConverter.create( DynamoDbDataType.class ))
+                        .tags(secondaryPartitionKey("region-index")))
                 .addAttribute( String.class, a -> a.name("pk")
                         .getter( DynamoDbRecord::getPk )
                         .setter( DynamoDbRecord::setPk )
-                        .tags(primaryPartitionKey()))
+                        .tags(secondarySortKey("region-index")))
                 .addAttribute( String.class, a -> a.name("sk")
                         .getter( DynamoDbRecord::getSk )
-                        .setter( DynamoDbRecord::setSk )
-                        .tags(primarySortKey()))
-                .addAttribute( DynamoDbDataType.class, a -> a.name("type")
-                        .getter( DynamoDbRecord::getType )
-                        .setter( DynamoDbRecord::setType )
-                        .attributeConverter(EnumAttributeConverter.create( DynamoDbDataType.class )))
-                .addAttribute( String.class, a -> a.name("flow-source-id")
-                        .getter( DynamoDbRecord::getSk )
                         .setter( DynamoDbRecord::setSk ))
+                .addAttribute( String.class, a -> a.name("flow-source-id")
+                        .getter( DynamoDbRecord::getFlowSourceId )
+                        .setter( DynamoDbRecord::setFlowSourceId ))
                 .addAttribute( EnhancedType.documentOf(Region.class,
                         getRegionTableSchema()), a -> a.name("region")
                         .getter( DynamoDbRecord::getRegion )
@@ -51,14 +50,50 @@ public final class DynamoDbTableSchemas {
                         .setter( DynamoDbRecord::setFlowSource ))
                 .addAttribute( EnhancedType.documentOf(SurfSpot.class,
                         getSurfSpotTableSchema()), a -> a.name("surf-spot")
-                        .getter( DynamoDbRecord::getSurfspot )
-                        .setter( DynamoDbRecord::setSurfspot ))
+                        .getter( DynamoDbRecord::getSurfspots )
+                        .setter( DynamoDbRecord::setSurfspots ))
+                .build();
+    }
+
+    public static TableSchema<DynamoDbRecord> getSurfSpotAccessDynamoDbRecordTableSchema(){
+        return TableSchema.builder(DynamoDbRecord.class)
+                .newItemSupplier( DynamoDbRecord::new )
+                .addAttribute( String.class, a -> a.name("pk")
+                        .getter( DynamoDbRecord::getPk )
+                        .setter( DynamoDbRecord::setPk )
+                        .tags(primaryPartitionKey()))
+                .addAttribute( String.class, a -> a.name("sk")
+                        .getter( DynamoDbRecord::getSk )
+                        .setter( DynamoDbRecord::setSk )
+                        .tags(primarySortKey()))
+                .addAttribute( DynamoDbDataType.class, a -> a.name("rowtype")
+                        .getter( DynamoDbRecord::getType )
+                        .setter( DynamoDbRecord::setType )
+                        .attributeConverter(EnumAttributeConverter.create( DynamoDbDataType.class )))
+                .addAttribute( String.class, a -> a.name("flow-source-id")
+                        .getter( DynamoDbRecord::getFlowSourceId )
+                        .setter( DynamoDbRecord::setFlowSourceId ))
+                .addAttribute( EnhancedType.documentOf(Region.class,
+                        getRegionTableSchema()), a -> a.name("region")
+                        .getter( DynamoDbRecord::getRegion )
+                        .setter( DynamoDbRecord::setRegion ))
+                .addAttribute( EnhancedType.documentOf(FlowSource.class,
+                        getFlowSourceTableSchema()), a -> a.name("flow-source")
+                        .getter( DynamoDbRecord::getFlowSource )
+                        .setter( DynamoDbRecord::setFlowSource ))
+                .addAttribute( EnhancedType.documentOf(SurfSpot.class,
+                        getSurfSpotTableSchema()), a -> a.name("surf-spot")
+                        .getter( DynamoDbRecord::getSurfspots )
+                        .setter( DynamoDbRecord::setSurfspots ))
                 .build();
     }
 
     public static TableSchema<Region> getRegionTableSchema(){
         return TableSchema.builder(Region.class)
                 .newItemSupplier( Region::new )
+                .addAttribute( String.class, a -> a.name("id")
+                        .getter( Region::getId )
+                        .setter( Region::setId ))
                 .addAttribute( String.class, a -> a.name("name")
                         .getter( Region::getName )
                         .setter( Region::setName ))
@@ -66,6 +101,18 @@ public final class DynamoDbTableSchemas {
                         getCoordinatesTableSchema())), a -> a.name("boundary")
                         .getter( Region::getBoundary )
                         .setter( Region::setBoundary ))
+                .addAttribute( String.class, a -> a.name("created-by")
+                        .getter( Region::getCreatedBy )
+                        .setter( Region::setCreatedBy ))
+                .addAttribute( Instant.class, a -> a.name("created-on")
+                        .getter( Region::getCreatedOn )
+                        .setter( Region::setCreatedOn ))
+                .addAttribute( String.class, a -> a.name("modified-by")
+                        .getter( Region::getModifiedBy )
+                        .setter( Region::setModifiedBy ))
+                .addAttribute( Instant.class, a -> a.name("modified-on")
+                        .getter( Region::getModifiedOn )
+                        .setter( Region::setModifiedOn ))
                 .build();
     }
 
@@ -86,16 +133,16 @@ public final class DynamoDbTableSchemas {
                 .addAttribute( String.class, a -> a.name("gage-expression")
                         .getter( FlowSource::getGageExpression )
                         .setter( FlowSource::setGageExpression ))
-                .addAttribute( String.class, a -> a.name("createdby")
+                .addAttribute( String.class, a -> a.name("created-by")
                         .getter( FlowSource::getCreatedBy )
                         .setter( FlowSource::setCreatedBy ))
-                .addAttribute( Instant.class, a -> a.name("createdon")
+                .addAttribute( Instant.class, a -> a.name("created-on")
                         .getter( FlowSource::getCreatedOn )
                         .setter( FlowSource::setCreatedOn ))
-                .addAttribute( String.class, a -> a.name("modifiedBy")
+                .addAttribute( String.class, a -> a.name("modified-by")
                         .getter( FlowSource::getModifiedBy )
                         .setter( FlowSource::setModifiedBy ))
-                .addAttribute( Instant.class, a -> a.name("modifiedOn")
+                .addAttribute( Instant.class, a -> a.name("modified-on")
                         .getter( FlowSource::getModifiedOn )
                         .setter( FlowSource::setModifiedOn ))
                 .build();
@@ -130,7 +177,7 @@ public final class DynamoDbTableSchemas {
 
     public static TableSchema<DailyGageRange> getDailyGageRangeTableSchema(){
         return TableSchema.builder(DailyGageRange.class)
-                .addAttribute( Date.class, a -> a.name("date")
+                .addAttribute( String.class, a -> a.name("date")
                         .getter( DailyGageRange::getDate )
                         .setter( DailyGageRange::setDate ))
                 .addAttribute( EnhancedType.documentOf(GageValue.class,
@@ -183,6 +230,9 @@ public final class DynamoDbTableSchemas {
                 .addAttribute( long.class, a -> a.name("id")
                         .getter( SurfSpot::getId )
                         .setter( SurfSpot::setId ))
+                .addAttribute( String.class, a -> a.name("flow-source-id")
+                        .getter( SurfSpot::getFlowSourceId )
+                        .setter( SurfSpot::setFlowSourceId ))
                 .addAttribute( String.class, a -> a.name("name")
                         .getter( SurfSpot::getName )
                         .setter( SurfSpot::setName ))
@@ -194,16 +244,16 @@ public final class DynamoDbTableSchemas {
                         getLocationTableSchema()), a -> a.name("location")
                         .getter( SurfSpot::getLocation )
                         .setter( SurfSpot::setLocation ))
-                .addAttribute( String.class, a -> a.name("createdby")
+                .addAttribute( String.class, a -> a.name("created-by")
                         .getter( SurfSpot::getCreatedBy )
                         .setter( SurfSpot::setCreatedBy ))
-                .addAttribute( Instant.class, a -> a.name("createdon")
+                .addAttribute( Instant.class, a -> a.name("created-on")
                         .getter( SurfSpot::getCreatedOn )
                         .setter( SurfSpot::setCreatedOn ))
-                .addAttribute( String.class, a -> a.name("modifiedBy")
+                .addAttribute( String.class, a -> a.name("modified-by")
                         .getter( SurfSpot::getModifiedBy )
                         .setter( SurfSpot::setModifiedBy ))
-                .addAttribute( Instant.class, a -> a.name("modifiedOn")
+                .addAttribute( Instant.class, a -> a.name("modified-on")
                         .getter( SurfSpot::getModifiedOn )
                         .setter( SurfSpot::setModifiedOn ))
                 .build();
@@ -230,24 +280,24 @@ public final class DynamoDbTableSchemas {
                         .getter( SurfSpotLocation::getTricks )
                         .setter( SurfSpotLocation::setTricks ))
                 .addAttribute( String.class, a -> a.name("features")
-                        .getter( SurfSpotLocation::getTricks )
-                        .setter( SurfSpotLocation::setTricks ))
+                        .getter( SurfSpotLocation::getFeatures )
+                        .setter( SurfSpotLocation::setFeatures ))
                 .addAttribute( EnhancedType.documentOf( Location.class,
                         getLocationTableSchema()), a -> a.name("location")
                         .getter( SurfSpotLocation::getLocation )
                         .setter( SurfSpotLocation::setLocation ))
                 .addAttribute( EnhancedType.documentOf( Location.class,
                         getLocationTableSchema()), a -> a.name("access")
-                        .getter( SurfSpotLocation::getLocation )
-                        .setter( SurfSpotLocation::setLocation ))
+                        .getter( SurfSpotLocation::getAccess )
+                        .setter( SurfSpotLocation::setAccess ))
                 .addAttribute( EnhancedType.documentOf( FlowRange.class,
                         getFlowRangeTableSchema()), a -> a.name("flow-range")
                         .getter( SurfSpotLocation::getFlowRange )
                         .setter( SurfSpotLocation::setFlowRange ))
                 .addAttribute( EnhancedType.documentOf( FlowRange.class,
                         getFlowRangeTableSchema()), a -> a.name("optimum-flow-range")
-                        .getter( SurfSpotLocation::getFlowRange )
-                        .setter( SurfSpotLocation::setFlowRange ))
+                        .getter( SurfSpotLocation::getOptimumFlowRange )
+                        .setter( SurfSpotLocation::setOptimumFlowRange ))
                 .addAttribute( EnhancedType.listOf(EnhancedType.documentOf(FlowInfo.class,
                         getFlowInfoTableSchema())), a -> a.name("flow-info")
                         .getter( SurfSpotLocation::getFlowInfo )
@@ -382,7 +432,7 @@ public final class DynamoDbTableSchemas {
                 .addAttribute( String.class, a -> a.name("label")
                         .getter( Link::getLabel )
                         .setter( Link::setLabel ))
-                .addAttribute( URL.class, a -> a.name("url")
+                .addAttribute( String.class, a -> a.name("url")
                         .getter( Link::getUrl )
                         .setter( Link::setUrl ))
                 .build();
@@ -397,7 +447,7 @@ public final class DynamoDbTableSchemas {
                 .addAttribute( String.class, a -> a.name("name")
                         .getter( Media::getName )
                         .setter( Media::setName ))
-                .addAttribute( URL.class, a -> a.name("url")
+                .addAttribute( String.class, a -> a.name("url")
                         .getter( Media::getUrl )
                         .setter( Media::setUrl ))
                 .build();
