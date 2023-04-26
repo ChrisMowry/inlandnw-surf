@@ -16,7 +16,6 @@ import software.amazon.awssdk.enhanced.dynamodb.internal.converter.attribute.Enu
 
 import java.net.URL;
 import java.time.Instant;
-import java.util.Date;
 
 import static software.amazon.awssdk.enhanced.dynamodb.mapper.StaticAttributeTags.*;
 
@@ -29,11 +28,11 @@ public final class DynamoDbTableSchemas {
                         .getter( DynamoDbRecord::getType )
                         .setter( DynamoDbRecord::setType )
                         .attributeConverter(EnumAttributeConverter.create( DynamoDbDataType.class ))
-                        .tags(secondaryPartitionKey("region-index")))
+                        .tags(secondaryPartitionKey("resource-index")))
                 .addAttribute( String.class, a -> a.name("pk")
                         .getter( DynamoDbRecord::getPk )
                         .setter( DynamoDbRecord::setPk )
-                        .tags(secondarySortKey("region-index")))
+                        .tags(secondarySortKey("resource-index")))
                 .addAttribute( String.class, a -> a.name("sk")
                         .getter( DynamoDbRecord::getSk )
                         .setter( DynamoDbRecord::setSk ))

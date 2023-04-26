@@ -1,8 +1,8 @@
 package com.inlandnwsurf.rest.dao.dynamodb;
 
-
 import com.inlandnwsurf.rest.config.DynamoDbProperties;
 import com.inlandnwsurf.rest.dao.SurfSpotDao;
+import com.inlandnwsurf.rest.exception.ElementNotFoundException;
 import com.inlandnwsurf.rest.model.levels.FlowSource;
 import com.inlandnwsurf.rest.model.location.Region;
 import com.inlandnwsurf.rest.model.surfspots.SurfSpot;
@@ -23,7 +23,6 @@ import static com.inlandnwsurf.rest.dao.dynamodb.DynamoDbTableSchemas.getSurfSpo
 
 @Service
 @Slf4j
-// TODO: move service components to Service class
 public class SurfSpotDynamodbDao implements SurfSpotDao {
 
     private final DynamoDbEnhancedClient dynamoDbClient;
@@ -40,12 +39,13 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
     }
 
     /**
-     * @param regionId
-     * @return
+     * @param regionId Region containing surf spots.
+     * @return List of Surf Spots
      */
     @Override
-    public List<SurfSpot> getSurfSpots(String regionId) {
+    public List<SurfSpot> getSurfSpots(String regionId) throws ElementNotFoundException {
         regionId = regionId.toUpperCase();
+        log.debug(String.format("Getting surf spots for region %s.", regionId));
 
         DynamoDbTable<DynamoDbRecord> dynamoDbRecordTable = getDynamoDbRecordTable();
 
@@ -58,6 +58,10 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
         PageIterable<DynamoDbRecord> dynamoDbRecord = dynamoDbRecordTable
                 .query(result -> result.queryConditional(queryConditional));
 
+        if ( dynamoDbRecord.items().stream().count() == 0 ){
+            throw new ElementNotFoundException(String.format("Region %s Not Found", regionId));
+        }
+
         // gets the region associated with the surf spots
         Region region = dynamoDbRecord
                 .items().stream()
@@ -66,8 +70,6 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
                 .findFirst()
                 .orElse(null);
 
-        region.setId(regionId);
-
         // gets the flow sources associated with the surf spots
         List<FlowSource> flowSources = dynamoDbRecord
                 .items().stream()
@@ -75,7 +77,7 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
                 .map(record -> record.getFlowSource())
                 .collect(Collectors.toList());
 
-
+        // gets surf spot at assembles related objects
         List<SurfSpot> surfspots = dynamoDbRecord
                 .items().stream()
                 .filter( item -> item.getType().equals(DynamoDbDataType.SURFSPOT))
@@ -112,24 +114,28 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
 
 
     /**
-     * @param regionId
-     * @param surfSpotId
-     * @return
+     * @param regionId Region containing surf spots.
+     * @param surfSpotId Id of the surf spot.
+     * @return Surf Spot matching Id parameter
      */
     @Override
-    public SurfSpot getSurfSpot(String regionId, long surfSpotId) {
+    public SurfSpot getSurfSpot(String regionId, long surfSpotId) throws ElementNotFoundException {
+        log.debug(String.format("Getting surf spot with id %d in region %s", surfSpotId, regionId));
 
         SurfSpot spot = this.getSurfSpots(regionId)
                 .stream()
                 .filter( item -> item.getId() == surfSpotId )
                 .findFirst().orElse(null);
 
+        if ( spot == null ){
+            throw new ElementNotFoundException(String.format("Surfspot with id %d not found.", surfSpotId));
+        }
         return spot;
     }
 
     /**
-     * @param regionId
-     * @param surfSpot
+     * @param regionId Region containing surf spots.
+     * @param surfSpot Surf Spot Object
      */
     @Override
     public SurfSpot createSurfSpot(String regionId, SurfSpot surfSpot) {
@@ -138,9 +144,9 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
     }
 
     /**
-     * @param regionId
-     * @param surfSpotId
-     * @param surfSpot
+     * @param regionId Region containing surf spots.
+     * @param surfSpotId Id of surf spot.
+     * @param surfSpot Surf Spot Object
      */
     @Override
     public SurfSpot updateSurfSpot(String regionId, long surfSpotId, SurfSpot surfSpot) {
@@ -149,8 +155,8 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
     }
 
     /**
-     * @param regionId
-     * @param surfSpotId
+     * @param regionId Region containing surf spots.
+     * @param surfSpotId Id of surf spot.
      */
     @Override
     public SurfSpot deleteSurfSpot(String regionId, long surfSpotId) {
@@ -159,39 +165,46 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
     }
 
     /**
-     * @param regionId
-     * @param surfSpotId
+     * @param regionId Region containing surf spots.
+     * @param surfSpotId Id of surf spot.
      * @return
      */
     @Override
-    public List<SurfSpotLocation> getSurfSpotLocations(String regionId, long surfSpotId) {
+    public List<SurfSpotLocation> getSurfSpotLocations(String regionId, long surfSpotId)
+            throws ElementNotFoundException{
+
+        log.debug(String.format("Getting surf spot locations for region %s in surf spot %d",regionId,surfSpotId));
         SurfSpot spot = getSurfSpot(regionId, surfSpotId);
 
-        // TODO implement this method
         return spot.getSurfspots();
     }
 
     /**
-     * @param regionId
-     * @param surfSpotId
-     * @param surfSpotLocationId
+     * @param regionId Region containing surf spots.
+     * @param surfSpotId Id of surf spot.
+     * @param surfSpotLocationId Id of surf spot location.
      * @return
      */
     @Override
-    public SurfSpotLocation getSurfSpotLocation(String regionId, long surfSpotId, long surfSpotLocationId) {
+    public SurfSpotLocation getSurfSpotLocation(String regionId, long surfSpotId, long surfSpotLocationId)
+            throws ElementNotFoundException{
 
         SurfSpotLocation spotLoc = this.getSurfSpotLocations( regionId, surfSpotId )
                 .stream()
                 .filter( item -> item.getId() == surfSpotLocationId )
                 .findFirst().orElse(null);
 
+        if ( spotLoc == null ) {
+            throw new ElementNotFoundException(String.format("Surf spot location with id %d not found.", surfSpotLocationId));
+        }
+
         return spotLoc;
     }
 
     /**
-     * @param regionId
-     * @param surfSpotId
-     * @param surfSpotLocation
+     * @param regionId Region containing surf spots.
+     * @param surfSpotId Id of surf spot.
+     * @param surfSpotLocation Surf Spot location object.
      */
     @Override
     public SurfSpotLocation addSurfSpotLocation(String regionId, long surfSpotId, SurfSpotLocation surfSpotLocation) {
@@ -201,10 +214,10 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
     }
 
     /**
-     * @param regionId
-     * @param surfSpotId
-     * @param surfSpotLocationId
-     * @param surfSpotLocation
+     * @param regionId Region containing surf spots.
+     * @param surfSpotId Id of surf spot.
+     * @param surfSpotLocationId Id of surf spot location.
+     * @param surfSpotLocation Surf Spot location object.
      */
     @Override
     public SurfSpotLocation updateSurfSpotLocation(String regionId,
@@ -218,9 +231,9 @@ public class SurfSpotDynamodbDao implements SurfSpotDao {
     }
 
     /**
-     * @param regionId
-     * @param surfSpotId
-     * @param surfSpotLocationId
+     * @param regionId Region containing surf spots.
+     * @param surfSpotId Id of surf spot.
+     * @param surfSpotLocationId Id of surf spot location.
      */
     @Override
     public SurfSpotLocation deleteSurfSpotLocation(String regionId, long surfSpotId, long surfSpotLocationId) {

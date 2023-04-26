@@ -1,5 +1,6 @@
 package com.inlandnwsurf.rest.controller;
 
+import com.inlandnwsurf.rest.exception.ElementNotFoundException;
 import com.inlandnwsurf.rest.model.surfspots.SurfSpot;
 import com.inlandnwsurf.rest.model.surfspots.SurfSpotLocation;
 import org.springframework.http.ResponseEntity;
@@ -15,22 +16,26 @@ public interface SurfSpotOperations {
 
     @GetMapping("/{regionId}")
     public ResponseEntity<List<SurfSpot>> getSurfSpots(
-            @PathVariable String regionId );
+            @PathVariable String regionId )
+            throws ElementNotFoundException;
 
     @GetMapping("/{regionId}/{surfspotId}")
     public ResponseEntity<SurfSpot> getSurfSpot(
             @PathVariable String regionId,
-            @PathVariable long surfspotId );
+            @PathVariable long surfspotId )
+            throws ElementNotFoundException;
 
     @GetMapping("/{regionId}/{surfspotId}/spots")
     public ResponseEntity<List<SurfSpotLocation>> getSurfSpotLocations(
             @PathVariable String regionId,
-            @PathVariable long surfspotId );
+            @PathVariable long surfspotId )
+            throws ElementNotFoundException;
 
     @GetMapping("/{regionId}/{surfspotId}/spots/{surfspotLocId}")
-    public ResponseEntity<SurfSpotLocation> getSurfSpotLocation(
+    public ResponseEntity<SurfSpotLocation> getSurfSpotLocation (
             @PathVariable String regionId,
             @PathVariable long surfspotId,
-            @PathVariable long surfspotLocId);
+            @PathVariable long surfspotLocId)
+            throws ElementNotFoundException;
 
 }

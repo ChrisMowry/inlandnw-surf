@@ -2,6 +2,7 @@ package com.inlandnwsurf.rest.dao.dynamodb;
 
 import com.inlandnwsurf.rest.config.DynamoDbProperties;
 import com.inlandnwsurf.rest.dao.FlowSourceDao;
+import com.inlandnwsurf.rest.exception.ElementNotFoundException;
 import com.inlandnwsurf.rest.model.levels.FlowSource;
 import com.inlandnwsurf.rest.model.levels.Gage;
 import com.inlandnwsurf.rest.model.location.Region;
@@ -65,8 +66,18 @@ public class FlowSourceDynamodbDao implements FlowSourceDao {
      * @return
      */
     @Override
-    public FlowSource getFlowSource(long flowSourceId) {
-        return null;
+    public FlowSource getFlowSource(long flowSourceId)
+        throws ElementNotFoundException {
+
+        FlowSource flowSource = this.getFlowSources()
+                .stream()
+                .filter( item -> item.getId() == flowSourceId )
+                .findFirst().orElse(null);
+
+        if (flowSource == null){
+            throw new ElementNotFoundException(String.format("Flow Source with id %d not found.", flowSourceId));
+        }
+        return flowSource;
     }
 
     /**
@@ -84,7 +95,8 @@ public class FlowSourceDynamodbDao implements FlowSourceDao {
      * @return
      */
     @Override
-    public FlowSource updateFlowSource(long flowSourceId, FlowSource flowSource) {
+    public FlowSource updateFlowSource(long flowSourceId, FlowSource flowSource)
+            throws ElementNotFoundException {
         return null;
     }
 
@@ -93,7 +105,8 @@ public class FlowSourceDynamodbDao implements FlowSourceDao {
      * @return
      */
     @Override
-    public FlowSource deleteFlowSource(long flowSourceId) {
+    public FlowSource deleteFlowSource(long flowSourceId)
+            throws ElementNotFoundException {
         return null;
     }
 
@@ -102,27 +115,8 @@ public class FlowSourceDynamodbDao implements FlowSourceDao {
      * @return
      */
     @Override
-    public List<Gage> getGages(long flowSourceId) {
-        return null;
-    }
-
-    /**
-     * @param flowSourceId
-     * @param gageId
-     * @return
-     */
-    @Override
-    public Gage getGage(long flowSourceId, String gageId) {
-        return null;
-    }
-
-    /**
-     * @param flowSourceId
-     * @param GageId
-     * @return
-     */
-    @Override
-    public Gage createGage(long flowSourceId, String GageId) {
+    public List<Gage> getGages(long flowSourceId)
+            throws ElementNotFoundException {
         return null;
     }
 
@@ -132,7 +126,19 @@ public class FlowSourceDynamodbDao implements FlowSourceDao {
      * @return
      */
     @Override
-    public Gage updateGage(long flowSourceId, String gageId) {
+    public Gage getGage(long flowSourceId, String gageId)
+            throws ElementNotFoundException {
+        return null;
+    }
+
+    /**
+     * @param flowSourceId
+     * @param gage
+     * @return
+     */
+    @Override
+    public Gage createGage(long flowSourceId, Gage gage)
+            throws ElementNotFoundException {
         return null;
     }
 
@@ -142,7 +148,19 @@ public class FlowSourceDynamodbDao implements FlowSourceDao {
      * @return
      */
     @Override
-    public Gage deleteGage(long flowSourceId, String gageId) {
+    public Gage updateGage(long flowSourceId, String gageId, Gage gage)
+            throws ElementNotFoundException {
+        return null;
+    }
+
+    /**
+     * @param flowSourceId
+     * @param gageId
+     * @return
+     */
+    @Override
+    public Gage deleteGage(long flowSourceId, String gageId)
+            throws ElementNotFoundException{
         return null;
     }
 }

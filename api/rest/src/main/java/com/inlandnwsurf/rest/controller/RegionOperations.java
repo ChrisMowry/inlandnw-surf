@@ -1,5 +1,6 @@
 package com.inlandnwsurf.rest.controller;
 
+import com.inlandnwsurf.rest.exception.ElementNotFoundException;
 import com.inlandnwsurf.rest.model.location.Region;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,8 @@ public interface RegionOperations {
     public ResponseEntity<List<Region>> getRegions();
 
     @GetMapping("/{regionId}")
-    public ResponseEntity<Region> getRegion(@PathVariable String regionId);
+    public ResponseEntity<Region> getRegion(@PathVariable String regionId)
+            throws ElementNotFoundException;
 
     @PostMapping("")
     public ResponseEntity<Region> createRegion(@RequestBody Region region);

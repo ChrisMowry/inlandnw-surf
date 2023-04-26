@@ -2,6 +2,7 @@ package com.inlandnwsurf.rest.dao.dynamodb;
 
 import com.inlandnwsurf.rest.config.DynamoDbProperties;
 import com.inlandnwsurf.rest.dao.RegionDao;
+import com.inlandnwsurf.rest.exception.ElementNotFoundException;
 import com.inlandnwsurf.rest.model.location.Region;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,7 @@ public class RegionDynamodbDao implements RegionDao {
     private DynamoDbIndex<DynamoDbRecord> getRegionTable(){
         return dynamoDbClient.table( this.dynamoDbProperties.getTable(),
                         getResourceAccessDynamoDbRecordTableSchema())
-                .index("region-index");
+                .index("resource-index");
     }
 
     /**
@@ -64,12 +65,16 @@ public class RegionDynamodbDao implements RegionDao {
      * @return
      */
     @Override
-    public Region getRegion(String regionId) {
+    public Region getRegion(String regionId) throws ElementNotFoundException{
 
         Region region = this.getRegions()
                 .stream()
                 .filter( item -> item.getId().equals(regionId.toUpperCase()) )
                 .findFirst().orElse(null);
+
+        if (region == null) {
+            throw new ElementNotFoundException(String.format("Region %s not found.", regionId));
+        }
 
         return region;
     }
@@ -88,7 +93,8 @@ public class RegionDynamodbDao implements RegionDao {
      * @return
      */
     @Override
-    public Region updateRegion(Region region, String regionId) {
+    public Region updateRegion(Region region, String regionId)
+            throws ElementNotFoundException {
         return null;
     }
 
@@ -97,7 +103,8 @@ public class RegionDynamodbDao implements RegionDao {
      * @return
      */
     @Override
-    public Region deleteRegion(String regionId) {
+    public Region deleteRegion(String regionId)
+            throws ElementNotFoundException {
         return null;
     }
 }

@@ -2,6 +2,7 @@ package com.inlandnwsurf.rest.controller;
 
 import com.inlandnwsurf.rest.dao.RegionDao;
 import com.inlandnwsurf.rest.dao.SurfSpotDao;
+import com.inlandnwsurf.rest.exception.ElementNotFoundException;
 import com.inlandnwsurf.rest.model.location.Region;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,7 @@ public class RegionController implements RegionOperations{
      * @return
      */
     @Override
-    public ResponseEntity<Region> getRegion(String regionId) {
+    public ResponseEntity<Region> getRegion(String regionId) throws ElementNotFoundException {
         Region region = regionDao.getRegion(regionId);
         return ResponseEntity.ok(region);
     }
